@@ -1,0 +1,21 @@
+.container {
+   background-color: var(--color-black-dark);
+   height: 94px;
+   width: 100%;
+   border-top: 2px solid var(--color-primary-medium);
+
+   display: flex;
+   flex-direction: column;
+
+   justify-content: center;
+   align-items: center;
+}
+
+.logoFooter {
+   transform: scale(0.4);
+}
+
+.developer {
+   color: var(--color-primary-light);
+   margin-bottom: 10px;
+}
