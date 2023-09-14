@@ -8,8 +8,8 @@ function Home() {
          <BannerBackground />
 
          <section className={styles.videosContainer}>
-            <SimpleSlider />
-            <SimpleSlider category="Pães" />
+            <SimpleSlider category="Bolos" />
+            <SimpleSlider category="Doces" />
          </section>
       </div>
    );

@@ -11,7 +11,7 @@ export default function MovieCard({ movie }) {
                   src={movie.url}
                   title={movie.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                />
             </Box>
          </Card>

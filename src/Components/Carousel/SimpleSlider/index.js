@@ -6,7 +6,7 @@ import data from "../../../Json/mock.json";
 import MovieCard from "../VideoCard/Index";
 import Category from "../../Category";
 
-export default function SimpleSlider({ category, children }) {
+export default function SimpleSlider({ category }) {
    const settings = {
       dots: true,
       infinite: true,
@@ -15,25 +15,28 @@ export default function SimpleSlider({ category, children }) {
       slidesToScroll: 1,
    };
 
-   if (category) {
+   const movieCategory = data.filter((movie) => movie.category === category);
+
+   if (category === "Bolos") {
+      return (
+         <div className={styles.container}>
+            <Slider {...settings}>
+               {movieCategory.map((movie) => (
+                  <MovieCard movie={movie} />
+               ))}
+            </Slider>
+         </div>
+      );
+   } else if (category) {
       return (
          <div className={styles.container}>
             <Category className={styles.category}>{category}</Category>
             <Slider {...settings}>
-               {data.map((movie) => (
+               {movieCategory.map((movie) => (
                   <MovieCard movie={movie} />
                ))}
             </Slider>
          </div>
       );
-   } else
-      return (
-         <div className={styles.container}>
-            <Slider {...settings}>
-               {data.map((movie) => (
-                  <MovieCard movie={movie} />
-               ))}
-            </Slider>
-         </div>
-      );
+   }
 }
