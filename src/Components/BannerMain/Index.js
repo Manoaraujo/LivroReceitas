@@ -9,9 +9,7 @@ function BannerMain() {
    return (
       <section className={styles.container}>
          <div className={styles.banner}>
-            <Category>
-               <h1 className={styles.categoryName}>Bolos</h1>
-            </Category>
+            <Category>Bolos</Category>
 
             <h2 className={styles.title}>Bolos de dar água na boca</h2>
             <p className={styles.description}>

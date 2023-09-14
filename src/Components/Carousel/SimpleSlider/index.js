@@ -30,7 +30,7 @@ export default function SimpleSlider({ category }) {
    } else if (category) {
       return (
          <div className={styles.container}>
-            <Category className={styles.category}>{category}</Category>
+            <Category>{category}</Category>
             <Slider {...settings}>
                {movieCategory.map((movie) => (
                   <MovieCard movie={movie} />

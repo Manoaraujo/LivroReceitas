@@ -24,16 +24,6 @@
    line-height: normal;
 }
 
-.categoryName {
-   color: var(--color-gray-light);
-   text-align: center;
-
-   font-family: Roboto;
-   font-size: 60px;
-   font-style: normal;
-   font-weight: 400;
-   line-height: normal;
-}
 .description {
    color: var(--color-gray-light);
 

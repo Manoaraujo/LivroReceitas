@@ -4,13 +4,11 @@
    display: flex;
    align-items: center;
    justify-content: center;
-   width: 296px;
-   height: 92px;
+   width: 206px;
+   height: 60px;
    color: white;
    background-color: var(--color-primary-medium);
    font-family: Roboto;
-   font-size: 60px;
-   font-style: normal;
+   font-size: 40px;
    font-weight: 400;
-   line-height: normal;
 }
