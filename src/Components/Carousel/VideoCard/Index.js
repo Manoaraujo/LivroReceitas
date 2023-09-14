@@ -1,26 +1,21 @@
-import { Box, Card, CardMedia, Typography } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
+import styles from "./VideoCard.module.css";
 
 export default function MovieCard({ movie }) {
    return (
-      <Card sx={{ maxWidth: 250, position: "relative" }}>
-         <Box sx={{ position: "relative" }}>
-            <CardMedia
-               component="img"
-               height="350"
-               image={movie.image}
-               alt={movie.title}
-            />
-         </Box>
-
-         <Card>
-            <Typography variant="h6" gutterBottom component="div">
-               {movie.title}
-            </Typography>
-
-            <Typography mb={0} variant="subtitle1" gutterBottom component="div">
-               {movie.releaseDate}
-            </Typography>
+      <>
+         <Card className={styles.videoCard}>
+            <Box>
+               <iframe
+                  className={styles.player}
+                  src={movie.url}
+                  title={movie.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+               />
+            </Box>
          </Card>
-      </Card>
+         <Typography className={styles.title}>{movie.title}</Typography>
+      </>
    );
 }

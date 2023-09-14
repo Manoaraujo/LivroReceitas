@@ -1,21 +1,8 @@
-.container {
-   padding-left: 30px;
-   background-color: var(--color-black-dark);
-}
-.image {
-   width: 250px;
-   height: 250px;
-   border-radius: 10px;
-   transition: 0.3s ease-in-out;
-}
-.image:hover {
-   transition: 0.3s ease-in-out;
-   transform: scale(1.03);
-}
 /* Slider */
 .slick-slider {
+   height: auto;
    position: relative;
-   bottom: 50px;
+   margin-top: 20px;
 
    display: block;
    box-sizing: border-box;

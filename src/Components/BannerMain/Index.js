@@ -1,7 +1,11 @@
 import Category from "../Category";
+import data from "../../Json/mock.json";
 import Player from "../Player/Index";
 import styles from "./BannerMain.module.css";
+
 function BannerMain() {
+   const videoCapa = data.find((video) => video.id === "1");
+
    return (
       <section className={styles.container}>
          <div className={styles.banner}>
@@ -15,7 +19,8 @@ function BannerMain() {
                fofinhos, gelados, para tomar com café, a escolha é sua.
             </p>
          </div>
-         <Player />
+
+         <Player movie={videoCapa} />
       </section>
    );
 }

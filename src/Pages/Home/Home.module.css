@@ -1,0 +1,20 @@
+.categoryName {
+   color: var(--color-gray-light);
+   text-align: center;
+
+   font-family: Roboto;
+   font-size: 60px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+}
+.mainContainer {
+   background-color: var(--color-black-dark);
+   height: auto;
+}
+
+.videosContainer {
+   position: relative;
+   padding: 0 35px;
+   bottom: 50px;
+}

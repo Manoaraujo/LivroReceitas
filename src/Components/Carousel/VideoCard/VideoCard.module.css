@@ -1,0 +1,16 @@
+.videoCard {
+   width: 266px;
+   height: 150px;
+   border-radius: 10px;
+   transition: 0.3s ease-in-out;
+   box-sizing: border-box;
+   border: 3px solid var(--color-primary-light);
+}
+.videoCard:hover {
+   transition: 0.3s ease-in-out;
+   transform: scale(1.01);
+}
+.title {
+   color: white;
+   padding: 10px 0 0 10px;
+}

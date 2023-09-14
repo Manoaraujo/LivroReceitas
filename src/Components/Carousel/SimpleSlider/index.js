@@ -1,8 +1,12 @@
+import styles from "./SimpleSlider.module.css";
 import Slider from "react-slick";
 import "./slick-theme.css";
 import "./slick.css";
+import data from "../../../Json/mock.json";
+import MovieCard from "../VideoCard/Index";
+import Category from "../../Category";
 
-export default function SimpleSlider() {
+export default function SimpleSlider({ category, children }) {
    const settings = {
       dots: true,
       infinite: true,
@@ -10,56 +14,26 @@ export default function SimpleSlider() {
       slidesToShow: 5,
       slidesToScroll: 1,
    };
-   return (
-      <div className="container">
-         <Slider {...settings}>
-            <div>
-               <img
-                  className="image"
-                  alt="bolo"
-                  src="https://dinorma.com.br/wp-content/uploads/2021/08/Postagens-Duplo-Julho-2022-bolo-amor-de-pai-600x600.png"
-               />
-            </div>
-            <div>
-               <img
-                  className="image"
-                  alt="bolo"
-                  src="https://dinorma.com.br/wp-content/uploads/2021/08/Postagens-Duplo-Julho-2022-bolo-amor-de-pai-600x600.png"
-               />
-            </div>
-            <div>
-               {" "}
-               <img
-                  className="image"
-                  alt="bolo"
-                  src="https://dinorma.com.br/wp-content/uploads/2021/08/Postagens-Duplo-Julho-2022-bolo-amor-de-pai-600x600.png"
-               />
-            </div>
-            <div>
-               {" "}
-               <img
-                  className="image"
-                  alt="bolo"
-                  src="https://dinorma.com.br/wp-content/uploads/2021/08/Postagens-Duplo-Julho-2022-bolo-amor-de-pai-600x600.png"
-               />
-            </div>
-            <div>
-               {" "}
-               <img
-                  className="image"
-                  alt="bolo"
-                  src="https://dinorma.com.br/wp-content/uploads/2021/08/Postagens-Duplo-Julho-2022-bolo-amor-de-pai-600x600.png"
-               />
-            </div>
-            <div>
-               {" "}
-               <img
-                  className="image"
-                  alt="bolo"
-                  src="https://dinorma.com.br/wp-content/uploads/2021/08/Postagens-Duplo-Julho-2022-bolo-amor-de-pai-600x600.png"
-               />
-            </div>
-         </Slider>
-      </div>
-   );
+
+   if (category) {
+      return (
+         <div className={styles.container}>
+            <Category className={styles.category}>{category}</Category>
+            <Slider {...settings}>
+               {data.map((movie) => (
+                  <MovieCard movie={movie} />
+               ))}
+            </Slider>
+         </div>
+      );
+   } else
+      return (
+         <div className={styles.container}>
+            <Slider {...settings}>
+               {data.map((movie) => (
+                  <MovieCard movie={movie} />
+               ))}
+            </Slider>
+         </div>
+      );
 }
