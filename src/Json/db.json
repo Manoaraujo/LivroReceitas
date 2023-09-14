@@ -1,0 +1,30 @@
+[
+   {
+      "id": 1,
+      "titulo": "FOCACCIA DE BATATA",
+      "capa": "https://i.ytimg.com/an_webp/gAAgSNaIJnE/mqdefault_6s.webp?du=3000&sqp=CKDg3qcG&rs=AOn4CLBGZ8nJoe5U76osPFHHARAoWqw9Gw",
+      "categoria": "Pães",
+      "link": "https://www.youtube.com/watch?v=gAAgSNaIJnE"
+   },
+   {
+      "id": 2,
+      "titulo": "BOLO DE MILHO",
+      "capa": "https://i.ytimg.com/an_webp/JwUR8_OoHNI/mqdefault_6s.webp?du=3000&sqp=CPLJ3qcG&rs=AOn4CLCKHmm5qgjIH52YzG7PuA6_vkROYg",
+      "categoria": "Bolos",
+      "link": "https://www.youtube.com/watch?v=JwUR8_OoHNI"
+   },
+   {
+      "id": 3,
+      "titulo": "Torta de banana rápida e fácil!",
+      "capa": "https://i.ytimg.com/an_webp/8sVVyAiomVA/mqdefault_6s.webp?du=3000&sqp=CIDPh6gG&rs=AOn4CLDFWvlnfa_r-fmlnmNdWO1ADZyjOg",
+      "categoria": "Sobremesas",
+      "link": "https://youtu.be/8sVVyAiomVA?si=gx_kOe3Q1zCtCND9"
+   },
+   {
+      "id": 4,
+      "titulo": "",
+      "capa": "",
+      "categoria": "Salgados",
+      "link": ""
+   }
+]
