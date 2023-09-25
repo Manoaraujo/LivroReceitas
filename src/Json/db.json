@@ -1,30 +1,82 @@
-[
-   {
-      "id": 1,
-      "titulo": "FOCACCIA DE BATATA",
-      "capa": "https://i.ytimg.com/an_webp/gAAgSNaIJnE/mqdefault_6s.webp?du=3000&sqp=CKDg3qcG&rs=AOn4CLBGZ8nJoe5U76osPFHHARAoWqw9Gw",
-      "categoria": "Pães",
-      "link": "https://www.youtube.com/watch?v=gAAgSNaIJnE"
-   },
-   {
-      "id": 2,
-      "titulo": "BOLO DE MILHO",
-      "capa": "https://i.ytimg.com/an_webp/JwUR8_OoHNI/mqdefault_6s.webp?du=3000&sqp=CPLJ3qcG&rs=AOn4CLCKHmm5qgjIH52YzG7PuA6_vkROYg",
-      "categoria": "Bolos",
-      "link": "https://www.youtube.com/watch?v=JwUR8_OoHNI"
-   },
-   {
-      "id": 3,
-      "titulo": "Torta de banana rápida e fácil!",
-      "capa": "https://i.ytimg.com/an_webp/8sVVyAiomVA/mqdefault_6s.webp?du=3000&sqp=CIDPh6gG&rs=AOn4CLDFWvlnfa_r-fmlnmNdWO1ADZyjOg",
-      "categoria": "Sobremesas",
-      "link": "https://youtu.be/8sVVyAiomVA?si=gx_kOe3Q1zCtCND9"
-   },
-   {
-      "id": 4,
-      "titulo": "",
-      "capa": "",
-      "categoria": "Salgados",
-      "link": ""
-   }
-]
+{
+   "videos": [
+      {
+         "id": 1,
+         "title": "Bolo de Milho",
+         "category": "Bolos",
+         "url": "https://www.youtube.com/embed/JwUR8_OoHNI?si=PqGVx4uMAzZp4ZXP"
+      },
+      {
+         "id": 2,
+         "title": "Bolo de Cenoura",
+         "category": "Bolos",
+         "url": "https://www.youtube.com/embed/__rtbSd_OwI?si=xB7bg2W20qtbWCZJ"
+      },
+      {
+         "id": 3,
+         "title": "Bolo de Banana",
+         "category": "Bolos",
+         "url": "https://www.youtube.com/embed/UkLRzwy7GHI?si=H5D4Jje3sg4RBLxf"
+      },
+      {
+         "id": 4,
+         "title": "Bolo de Nozes",
+         "category": "Bolos",
+         "url": "https://www.youtube.com/embed/IZIA3vbcZ8k?si=rOvkeHbyv_iPlJ2g"
+      },
+      {
+         "id": 5,
+         "title": "Bolo de Chocolate",
+         "category": "Bolos",
+         "url": "https://www.youtube.com/embed/Krp1tWm80aU?si=HpIlOpfgMZYRldRx"
+      },
+      {
+         "id": 6,
+         "title": "Brownie",
+         "category": "Bolos",
+         "url": "https://www.youtube.com/embed/W0Oi_KSLs9Y?si=wTc0XU-Nolr1-bAu"
+      },
+      {
+         "id": 7,
+         "title": "Cupcake de café",
+         "category": "Bolos",
+         "url": "https://www.youtube.com/embed/IcHA700rGfg?si=2jkhmqUx5M50G1Q5"
+      },
+      {
+         "id": 8,
+         "title": "Torta de maçã",
+         "category": "Doces",
+         "url": "https://www.youtube.com/embed/RA5FGmpLWDM?si=fhObpDrWkq7kawzK"
+      },
+      {
+         "id": 9,
+         "title": "Creme de confeiteiro",
+         "category": "Doces",
+         "url": "https://www.youtube.com/embed/dq1WiCia2Y4?si=rgBG19sTe5gmo_e5"
+      },
+      {
+         "id": 10,
+         "title": "Cheesecake na Air Fryer",
+         "category": "Doces",
+         "url": "https://www.youtube.com/embed/6g3KA2SIJAI?si=URWJHumPqXCr5tnA"
+      },
+      {
+         "id": 11,
+         "title": "Torta de Peras e Avelãs",
+         "category": "Doces",
+         "url": "https://www.youtube.com/embed/e1TotJ0hi3s?si=PpJ0iXLq6f4Q2AON"
+      },
+      {
+         "id": 12,
+         "title": "Sablée de castanhas",
+         "category": "Doces",
+         "url": "https://www.youtube.com/embed/EL9H1LvW2Wo?si=DToQfYXa2zqgNtPo"
+      },
+      {
+         "id": 13,
+         "title": "Mousse de cacau",
+         "category": "Doces",
+         "url": "https://www.youtube.com/embed/0otiR8LOn4g?si=SuCdM57LbUla8igv"
+      }
+   ]
+}

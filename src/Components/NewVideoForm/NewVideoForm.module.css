@@ -1,0 +1,20 @@
+.container {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   margin: 20px;
+}
+
+.buttons {
+   display: flex;
+   gap: 10px;
+}
+.input {
+   color: var(--light-red);
+   background-color: var(--grey);
+}
+.link {
+   color: var(--light-red);
+   background-color: var(--grey);
+   text-decoration: none;
+}

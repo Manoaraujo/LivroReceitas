@@ -1,0 +1,15 @@
+.container {
+   background-color: var(--color-black-dark);
+   color: var(--color-primary-medium);
+
+   /* display: flex;
+   flex-direction: column; */
+   padding: 20px;
+   height: auto;
+}
+.title {
+   text-align: center;
+   font-family: Roboto;
+   font-size: 60px;
+   font-weight: 400;
+}
