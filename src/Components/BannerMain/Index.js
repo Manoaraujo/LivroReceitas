@@ -1,10 +1,13 @@
 import Category from "../Category";
-import data from "../../Json/mock.json";
 import Player from "../Player/Index";
 import styles from "./BannerMain.module.css";
+import { useContext } from "react";
+import { MovieListContext } from "../../Contexts/EndPoint";
 
 function BannerMain() {
-   const videoCapa = data.find((video) => video.id === 1);
+   const { movies } = useContext(MovieListContext);
+
+   const videoCapa = movies.filter((movie) => movie.id === 1);
 
    return (
       <section className={styles.container}>
@@ -18,7 +21,9 @@ function BannerMain() {
             </p>
          </div>
          <div className={styles.player}>
-            <Player movie={videoCapa} />
+            {videoCapa.map((movie) => (
+               <Player key={movie.id} movie={movie} />
+            ))}
          </div>
       </section>
    );
