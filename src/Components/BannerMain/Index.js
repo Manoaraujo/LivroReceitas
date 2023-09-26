@@ -7,18 +7,18 @@ import { useContext } from "react";
 function BannerMain() {
    const { movies } = useContext(MovieListContext);
 
-   let bannerVideo = movies[0];
+   let i = 0;
 
    return (
       <section className={styles.container}>
          <div className={styles.banner}>
-            <Category key={bannerVideo.id}>{bannerVideo.category}</Category>
+            <Category key={movies[i].id}>{movies[i].category}</Category>
 
-            <h2 className={styles.title}>{bannerVideo.title}</h2>
-            <p className={styles.description}>{bannerVideo.description}</p>
+            <h2 className={styles.title}>{movies[i].title}</h2>
+            <p className={styles.description}>{movies[i].description}</p>
          </div>
          <div className={styles.player}>
-            <Player key={bannerVideo.id} movie={bannerVideo} />
+            <Player key={movies[i].id} movie={movies[i]} />
          </div>
       </section>
    );
