@@ -5,7 +5,7 @@ import "./slick.css";
 import MovieCard from "../VideoCard/Index";
 import Category from "../../Category";
 import { useContext } from "react";
-import { MovieListContext } from "../../../Contexts/EndPoint";
+import { MovieListContext } from "../../../Contexts/MovieList";
 
 export default function SimpleSlider({ category }) {
    const settings = {

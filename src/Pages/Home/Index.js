@@ -1,19 +1,12 @@
 import { useContext } from "react";
 import BannerBackground from "../../Components/BannerBackground/index";
 import SimpleSlider from "../../Components/Carousel/SimpleSlider";
-import { MovieListContext } from "../../Contexts/EndPoint";
+
 import styles from "./Home.module.css";
+import { CategoriesContext } from "../../Contexts/Categories/Index";
 
 export default function Home() {
-   const { movies } = useContext(MovieListContext);
-
-   const allCategories = movies.map((movie) => movie.category);
-
-   const uniqueCategories = allCategories.filter(
-      (category, index, self) => self.indexOf(category) === index
-   );
-
-   console.log(uniqueCategories);
+   const { uniqueCategories } = useContext(CategoriesContext);
 
    return (
       <div className={styles.mainContainer}>
@@ -21,7 +14,7 @@ export default function Home() {
 
          <section className={styles.videosContainer}>
             {uniqueCategories.map((category) => (
-               <SimpleSlider category={category} />
+               <SimpleSlider key={category.id} category={category} />
             ))}
          </section>
       </div>

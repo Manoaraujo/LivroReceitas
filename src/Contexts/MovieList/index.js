@@ -23,7 +23,7 @@ export const MovieList = ({ children }) => {
    });
 
    return (
-      <MovieListContext.Provider value={{ movies, baseUrl }}>
+      <MovieListContext.Provider value={{ movies }}>
          {children}
       </MovieListContext.Provider>
    );

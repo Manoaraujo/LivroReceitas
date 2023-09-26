@@ -1,8 +1,8 @@
+import { MovieListContext } from "../../Contexts/MovieList";
 import Category from "../Category";
 import Player from "../Player/Index";
 import styles from "./BannerMain.module.css";
 import { useContext } from "react";
-import { MovieListContext } from "../../Contexts/EndPoint";
 
 function BannerMain() {
    const { movies } = useContext(MovieListContext);
