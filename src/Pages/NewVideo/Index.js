@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import NewVideoForm from "../../Components/NewVideoForm/Index";
 import styles from "./NewVideo.module.css";
+import { MovieListContext } from "../../Contexts/MovieList";
 
 export default function NewVideo() {
+   const { movies } = useContext(MovieListContext);
+
    const [savedVideo, setSavedVideo] = useState({});
    function getVideo(data) {
       setSavedVideo({ ...savedVideo, ...data });
    }
-   console.log(savedVideo);
+   console.log(movies, savedVideo);
 
    return (
       <section className={styles.container}>

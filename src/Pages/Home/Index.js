@@ -12,11 +12,11 @@ export default function Home() {
       <div className={styles.mainContainer}>
          <BannerBackground />
 
-         <section className={styles.videosContainer}>
-            {uniqueCategories.map((category) => (
-               <SimpleSlider key={category.id} category={category} />
-            ))}
-         </section>
+         {uniqueCategories.map((category) => (
+            <section key={category.id} className={styles.videosContainer}>
+               <SimpleSlider category={category} />
+            </section>
+         ))}
       </div>
    );
 }

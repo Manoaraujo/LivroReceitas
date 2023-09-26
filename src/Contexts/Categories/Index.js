@@ -15,7 +15,10 @@ export function CategoriesList({ children }) {
    );
 
    return (
-      <CategoriesContext.Provider value={{ uniqueCategories }}>
+      <CategoriesContext.Provider
+         key={uniqueCategories.id}
+         value={{ uniqueCategories }}
+      >
          {children}
       </CategoriesContext.Provider>
    );

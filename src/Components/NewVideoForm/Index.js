@@ -104,7 +104,7 @@ function NewVideoForm({ onFormSubmit }) {
             InputProps={{ className: styles.input }}
             multiline={true}
             rows={5}
-            rowsMax={10}
+            rowsmax={10}
             color="warning"
             label="Descrição"
             margin="normal"

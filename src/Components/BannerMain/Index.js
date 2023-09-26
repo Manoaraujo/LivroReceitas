@@ -13,21 +13,20 @@ function BannerMain() {
    const bannerMovie = movies.filter((movie) => movie.id === i);
 
    return (
-      <section className={styles.container}>
+      <>
          {bannerMovie.map((movie) => (
-            <>
+            <section key={movie.id} className={styles.container}>
                <div className={styles.banner}>
-                  <Category key={movie.id}>{movie.category}</Category>
-
+                  <Category>{movie.category}</Category>
                   <h2 className={styles.title}>{movie.title}</h2>
                   <p className={styles.description}>{movie.description}</p>
                </div>
                <div className={styles.player}>
                   <Player key={movie.id} movie={movie} />
                </div>
-            </>
+            </section>
          ))}
-      </section>
+      </>
    );
 }
 
