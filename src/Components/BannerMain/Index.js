@@ -7,23 +7,18 @@ import { useContext } from "react";
 function BannerMain() {
    const { movies } = useContext(MovieListContext);
 
-   const videoCapa = movies.filter((movie) => movie.id === 1);
+   let bannerVideo = movies[0];
 
    return (
       <section className={styles.container}>
          <div className={styles.banner}>
-            <Category>Bolos</Category>
+            <Category key={bannerVideo.id}>{bannerVideo.category}</Category>
 
-            <h2 className={styles.title}>Bolos de dar água na boca</h2>
-            <p className={styles.description}>
-               Aqui você encontra bolos de todo os estilos, confeitados,
-               fofinhos, gelados, para tomar com café, a escolha é sua.
-            </p>
+            <h2 className={styles.title}>{bannerVideo.title}</h2>
+            <p className={styles.description}>{bannerVideo.description}</p>
          </div>
          <div className={styles.player}>
-            {videoCapa.map((movie) => (
-               <Player key={movie.id} movie={movie} />
-            ))}
+            <Player key={bannerVideo.id} movie={bannerVideo} />
          </div>
       </section>
    );
