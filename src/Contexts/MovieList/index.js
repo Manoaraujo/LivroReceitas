@@ -12,8 +12,7 @@ export const MovieList = ({ children }) => {
 
    useEffect(() => {
       axios
-
-         .get(`${baseUrl}`)
+         .get(baseUrl)
          .then((response) => {
             setMovies(response.data);
          })

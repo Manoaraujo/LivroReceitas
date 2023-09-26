@@ -20,6 +20,8 @@ export default function SimpleSlider({ category }) {
 
    const movieCategory = movies.filter((movie) => movie.category === category);
 
+   // console.log(movies);
+
    if (category === "Bolos") {
       return (
          <div className={styles.container}>
