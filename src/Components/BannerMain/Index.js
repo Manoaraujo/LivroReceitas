@@ -8,7 +8,8 @@ import { useContext } from "react";
 function BannerMain() {
    const { movies } = useContext(MovieListContext);
 
-   let i = 1;
+   let i = 3;
+   // console.log(movies[0]);
 
    const bannerMovie = movies.filter((movie) => movie.id === i);
 
