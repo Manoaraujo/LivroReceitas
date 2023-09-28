@@ -10,11 +10,18 @@ export const baseUrl = `https://my-json-server.typicode.com/Manoaraujo/LivroRece
 
 export const MovieList = ({ children }) => {
    const [movies, setMovies] = useState([]);
-
-   const addVideo = (newVideo) => {
+   const AddVideo = (newVideo) => {
       setMovies([...movies, newVideo]);
-   };
 
+      axios
+         .post(baseUrl, newVideo)
+         .then((response) => {
+            console.log("Video added successfully:", movies, response.data);
+         })
+         .catch((error) => {
+            console.error("Failed to add video:", error);
+         });
+   };
    useEffect(() => {
       axios
          .get(baseUrl)
@@ -27,7 +34,7 @@ export const MovieList = ({ children }) => {
    }, []);
 
    return (
-      <MovieListContext.Provider value={{ movies, addVideo }}>
+      <MovieListContext.Provider value={{ movies, AddVideo }}>
          {children}
       </MovieListContext.Provider>
    );

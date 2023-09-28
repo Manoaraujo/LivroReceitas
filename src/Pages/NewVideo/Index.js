@@ -2,12 +2,18 @@ import { useContext } from "react";
 import NewVideoForm from "../../Components/NewVideoForm/Index";
 import styles from "./NewVideo.module.css";
 import { MovieListContext } from "../../Contexts/MovieList";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function NewVideo() {
-   const { movies, addVideo } = useContext(MovieListContext);
-   const baseUrl = `https://my-json-server.typicode.com/Manoaraujo/LivroReceitas-api/videos`;
-   // const baseUrl = `http://localhost:3000/videos`;
+   const { movies, AddVideo } = useContext(MovieListContext);
+   const navigate = useNavigate();
+
+   const handleSubmit = () => {
+      // Here you can add logic to submit the data
+
+      // After submitting the data, navigate to the index page
+      navigate("/");
+   };
 
    const PostVideo = (formData) => {
       const newVideo = {
@@ -17,17 +23,9 @@ export default function NewVideo() {
          url: formData.link,
          description: formData.description,
       };
-
-      axios
-         .post(baseUrl, newVideo)
-         .then((response) => {
-            console.log("Video added successfully:", movies, response.data);
-
-            addVideo(response.data);
-         })
-         .catch((error) => {
-            console.error("Failed to add video:", error);
-         });
+      AddVideo(newVideo);
+      alert("Video adicionado com sucesso!");
+      handleSubmit();
    };
 
    return (

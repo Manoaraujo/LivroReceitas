@@ -9,12 +9,18 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useContext } from "react";
+import { CategoriesContext } from "../../Contexts/Categories/Index";
 
 function NewVideoForm({ onFormSubmit }) {
    const [title, setTitle] = useState("");
    const [link, setLink] = useState("");
    const [category, setCategory] = useState("");
    const [description, setDescription] = useState("");
+
+   const { uniqueCategories } = useContext(CategoriesContext);
+
+   // console.log(uniqueCategories);
 
    function clearData(data) {
       setLink(data);
@@ -50,8 +56,9 @@ function NewVideoForm({ onFormSubmit }) {
             InputProps={{ className: styles.input }}
             color="warning"
             label="Link do video"
-            placeholder="ATENÇÃO: O link deve ser da sessão de compartilhamento do video."
+            placeholder="ATENÇÃO: apenas videos do youtube"
             margin="normal"
+            type="link"
             fullWidth
             required
          />
@@ -70,27 +77,16 @@ function NewVideoForm({ onFormSubmit }) {
                id="Categoria"
                label="Categoria"
             >
-               <MenuItem
-                  value={"Bolos"}
-                  onClick={(e) => setCategory("Bolos")}
-                  className={styles.input}
-               >
-                  Bolos
-               </MenuItem>
-               <MenuItem
-                  value={"Doces"}
-                  onClick={(e) => setCategory("Doces")}
-                  className={styles.input}
-               >
-                  Doces
-               </MenuItem>
-               <MenuItem
-                  value={"Pães"}
-                  onClick={(e) => setCategory("Pães")}
-                  className={styles.input}
-               >
-                  Pães
-               </MenuItem>
+               {uniqueCategories.map((category) => (
+                  <MenuItem
+                     value={category}
+                     onClick={(e) => setCategory(category)}
+                     className={styles.input}
+                  >
+                     {category}
+                  </MenuItem>
+               ))}
+
                <Link className={styles.link} to={"/NovaCategoria"}>
                   <MenuItem className={styles.input}>+ nova categoria</MenuItem>
                </Link>
