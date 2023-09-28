@@ -1,25 +1,37 @@
+import { TextField } from "@mui/material";
 import React from "react";
+import { useState } from "react";
+import { Button } from "@mui/joy";
 import styles from "./NewCategoryForm.module.css";
-import { Button, FormControl, TextField } from "@mui/material";
 
-function NewCategoryForm() {
+export default function NewCategoryForm({ onFormSubmit }) {
+   const [newCategory, setNewCategory] = useState("");
+
    return (
-      <div className={styles.container}>
-         <FormControl>
-            <TextField color="warning" label="Nome" />
-            <TextField color="warning" label="descrição" />
-            <TextField color="warning" type="color" label="cor" />
-            <section>
-               <Button color="error" variant="contained">
-                  Salvar
-               </Button>
-               <Button color="error" variant="contained">
-                  Limpar
-               </Button>
-            </section>
-         </FormControl>
-      </div>
+      <form
+         className={styles.container}
+         onSubmit={(e) => {
+            e.preventDefault();
+            onFormSubmit(newCategory);
+         }}
+      >
+         <TextField
+            value={newCategory}
+            onChange={(e) => {
+               setNewCategory(e.target.value);
+            }}
+            InputProps={{ className: styles.input }}
+            color="warning"
+            label="Titulo"
+            margin="normal"
+            fullWidth
+            required
+         />
+         <section className={styles.button}>
+            <Button type="submit" color="danger">
+               Salvar
+            </Button>
+         </section>
+      </form>
    );
 }
-
-export default NewCategoryForm;
