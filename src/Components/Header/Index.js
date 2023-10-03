@@ -1,8 +1,43 @@
 import { Button } from "@mui/joy";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { Box, Modal, Typography } from "@mui/material";
+import { useState } from "react";
+import NewVideoForm from "../NewVideoForm/Index";
+import { useContext } from "react";
+import { MovieListContext } from "../../Contexts/MovieList";
+
+const style = {
+   position: "absolute",
+   top: "50%",
+   left: "50%",
+   transform: "translate(-50%, -50%)",
+   width: 400,
+   bgcolor: "background.paper",
+   border: "2px solid #ff0000",
+   boxShadow: 24,
+   p: 4,
+};
 
 function Header() {
+   const { movies, AddVideo } = useContext(MovieListContext);
+   const [open, setOpen] = useState(false);
+   const handleOpen = () => setOpen(true);
+   const handleClose = () => setOpen(false);
+
+   const PostVideo = (formData) => {
+      const newVideo = {
+         id: movies.length + 1,
+         title: formData.title,
+         category: formData.category,
+         url: formData.link,
+         description: formData.description,
+      };
+      AddVideo(newVideo);
+      alert("Video adicionado com sucesso!");
+      handleClose();
+   };
+
    return (
       <section className={styles.container}>
          <Link to={"/"}>
@@ -12,11 +47,28 @@ function Header() {
                alt="logo receitas"
             />
          </Link>
-         <Link to={"/novoVideo"}>
-            <Button color="danger" variant="outlined" className={styles.button}>
-               Novo vídeo
-            </Button>
-         </Link>
+
+         <Button color="danger" className={styles.button} onClick={handleOpen}>
+            Novo vídeo
+         </Button>
+         <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+         >
+            <Box sx={style}>
+               <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Novo vídeo
+               </Typography>
+
+               <NewVideoForm
+                  onFormSubmit={PostVideo}
+                  id="modal-modal-description"
+                  sx={{ mt: 2 }}
+               />
+            </Box>
+         </Modal>
       </section>
    );
 }

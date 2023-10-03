@@ -1,8 +1,0 @@
-.container {
-   height: fit-content;
-   display: flex;
-   flex-direction: column;
-   gap: 15px;
-   padding: 20px;
-   box-sizing: border-box;
-}

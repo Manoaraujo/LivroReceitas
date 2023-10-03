@@ -56,7 +56,7 @@ function NewVideoForm({ onFormSubmit }) {
             InputProps={{ className: styles.input }}
             color="warning"
             label="Link do video"
-            placeholder="ATENÇÃO: apenas videos do youtube"
+            placeholder="ATENÇÃO: apenas videos do YouTube"
             margin="normal"
             type="link"
             fullWidth

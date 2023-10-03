@@ -5,9 +5,11 @@ import Header from "../../Components/Header/Index";
 function MainPage() {
    return (
       <main>
+         {/* <ThemeProvider theme={theme}> */}
          <Header />
          <Outlet />
          <Footer />
+         {/* </ThemeProvider> */}
       </main>
    );
 }

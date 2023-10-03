@@ -9,9 +9,6 @@ export default function NewVideo() {
    const navigate = useNavigate();
 
    const handleSubmit = () => {
-      // Here you can add logic to submit the data
-
-      // After submitting the data, navigate to the index page
       navigate("/");
    };
 
