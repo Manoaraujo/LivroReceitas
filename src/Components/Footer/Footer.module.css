@@ -1,8 +1,8 @@
 .container {
-   background-color: var(--color-black-dark);
+   background-color: var(--color-background);
    height: 94px;
    width: 100%;
-   border-top: 2px solid var(--color-primary-medium);
+   border-top: 2px solid var(--strong-red);
 
    display: flex;
    flex-direction: column;
@@ -16,6 +16,6 @@
 }
 
 .developer {
-   color: var(--color-primary-light);
+   color: var(--medium-red);
    margin-bottom: 10px;
 }

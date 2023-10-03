@@ -20,8 +20,6 @@ function NewVideoForm({ onFormSubmit }) {
 
    const { uniqueCategories } = useContext(CategoriesContext);
 
-   // console.log(uniqueCategories);
-
    function clearData(data) {
       setLink(data);
       setTitle(data);
@@ -63,15 +61,12 @@ function NewVideoForm({ onFormSubmit }) {
             required
          />
          <FormControl InputProps={{ className: styles.input }}>
-            <InputLabel className={styles.label} id="Categoria">
+            <InputLabel color="warning" className={styles.label} id="Categoria">
                Categoria
             </InputLabel>
             <Select
                value={category}
-               sx={{
-                  backgroundColor: "var(--grey)",
-                  color: "var(--color-primary-light)",
-               }}
+               className={styles.dropdown}
                color="warning"
                labelId="Categoria"
                id="Categoria"

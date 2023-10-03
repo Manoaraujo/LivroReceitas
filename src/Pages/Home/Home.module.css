@@ -1,5 +1,5 @@
 .categoryName {
-   color: var(--color-gray-light);
+   color: var(--light-grey);
    text-align: center;
 
    font-family: Roboto;
@@ -9,7 +9,7 @@
    line-height: normal;
 }
 .mainContainer {
-   background-color: var(--color-black-dark);
+   background-color: var(--color-background);
    height: auto;
 }
 

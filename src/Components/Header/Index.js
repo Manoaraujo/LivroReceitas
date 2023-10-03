@@ -7,20 +7,9 @@ import NewVideoForm from "../NewVideoForm/Index";
 import { useContext } from "react";
 import { MovieListContext } from "../../Contexts/MovieList";
 
-const style = {
-   position: "absolute",
-   top: "50%",
-   left: "50%",
-   transform: "translate(-50%, -50%)",
-   width: 400,
-   bgcolor: "background.paper",
-   border: "2px solid #ff0000",
-   boxShadow: 24,
-   p: 4,
-};
-
 function Header() {
    const { movies, AddVideo } = useContext(MovieListContext);
+
    const [open, setOpen] = useState(false);
    const handleOpen = () => setOpen(true);
    const handleClose = () => setOpen(false);
@@ -57,7 +46,7 @@ function Header() {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
          >
-            <Box sx={style}>
+            <Box className={styles.box}>
                <Typography id="modal-modal-title" variant="h6" component="h2">
                   Novo vídeo
                </Typography>

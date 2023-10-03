@@ -18,3 +18,8 @@
    background-color: var(--grey);
    text-decoration: none;
 }
+
+.dropdown {
+   background-color: var(--grey);
+   color: var(--medium-red);
+}

@@ -1,6 +1,6 @@
 .container {
-   background-color: var(--color-black-dark);
-   color: var(--color-primary-medium);
+   background-color: var(--color-background);
+   color: var(--strong-red);
 
    /* display: flex;
    flex-direction: column; */
