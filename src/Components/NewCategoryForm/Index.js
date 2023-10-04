@@ -22,13 +22,19 @@ export default function NewCategoryForm({ onFormSubmit }) {
             }}
             InputProps={{ className: styles.input }}
             color="warning"
-            label="Titulo"
+            label="Nome"
             margin="normal"
             fullWidth
             required
          />
          <section className={styles.button}>
-            <Button type="submit" color="danger">
+            <Button
+               onClick={(e) => {
+                  e.preventDefault();
+                  onFormSubmit(newCategory);
+               }}
+               color="danger"
+            >
                Salvar
             </Button>
          </section>

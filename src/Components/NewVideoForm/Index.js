@@ -7,18 +7,17 @@ import {
    Select,
    TextField,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
 
-function NewVideoForm({ onFormSubmit }) {
+function NewVideoForm({ onFormSubmit, novaCategoria }) {
    const [title, setTitle] = useState("");
    const [link, setLink] = useState("");
    const [category, setCategory] = useState("");
    const [description, setDescription] = useState("");
 
-   const { uniqueCategories } = useContext(CategoriesContext);
+   const { categories } = useContext(CategoriesContext);
 
    function clearData(data) {
       setLink(data);
@@ -72,19 +71,16 @@ function NewVideoForm({ onFormSubmit }) {
                id="Categoria"
                label="Categoria"
             >
-               {uniqueCategories.map((category) => (
+               {categories.map((category) => (
                   <MenuItem
-                     value={category}
-                     onClick={(e) => setCategory(category)}
+                     value={category.name}
+                     onClick={() => setCategory(category.name)}
                      className={styles.input}
                   >
-                     {category}
+                     {category.name}
                   </MenuItem>
                ))}
-
-               <Link className={styles.link} to={"/NovaCategoria"}>
-                  <MenuItem className={styles.input}>+ nova categoria</MenuItem>
-               </Link>
+               {novaCategoria}
             </Select>
          </FormControl>
          <TextField

@@ -9,7 +9,9 @@ import { MovieListContext } from "../../../Contexts/MovieList";
 
 export default function SimpleSlider({ category }) {
    const { movies } = useContext(MovieListContext);
-   const movieCategory = movies.filter((movie) => movie.category === category);
+   const movieCategory = movies.filter(
+      (movie) => movie.category === category.name
+   );
 
    if (movieCategory.length < 5) {
       const settings = {
@@ -22,7 +24,7 @@ export default function SimpleSlider({ category }) {
 
       return (
          <div className={styles.container}>
-            <Category>{category}</Category>
+            <Category>{category.name}</Category>
             <Slider {...settings}>
                {movieCategory.reverse().map((movie, index) => (
                   <MovieCard key={index} movie={movie} />
@@ -40,7 +42,7 @@ export default function SimpleSlider({ category }) {
       };
       return (
          <div className={styles.container}>
-            <Category>{category}</Category>
+            <Category>{category.name}</Category>
             <Slider {...settings}>
                {movieCategory.reverse().map((movie, index) => (
                   <MovieCard key={index} movie={movie} />

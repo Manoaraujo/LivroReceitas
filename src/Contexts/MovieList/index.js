@@ -10,6 +10,7 @@ export const baseUrl = `https://my-json-server.typicode.com/Manoaraujo/LivroRece
 
 export const MovieList = ({ children }) => {
    const [movies, setMovies] = useState([]);
+
    const AddVideo = (newVideo) => {
       setMovies([...movies, newVideo]);
 
@@ -34,7 +35,7 @@ export const MovieList = ({ children }) => {
    }, []);
 
    return (
-      <MovieListContext.Provider value={{ movies, AddVideo }}>
+      <MovieListContext.Provider key={movies.id} value={{ movies, AddVideo }}>
          {children}
       </MovieListContext.Provider>
    );

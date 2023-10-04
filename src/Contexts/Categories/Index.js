@@ -1,21 +1,47 @@
-import React from "react";
-import { useContext } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { createContext } from "react";
-import { MovieListContext } from "../MovieList";
 
 export const CategoriesContext = createContext();
 
-export function CategoriesList({ children, addNewCategory }) {
-   const { movies } = useContext(MovieListContext);
-   const allCategories = movies.map((movie) => movie.category);
-   const uniqueCategories = allCategories.filter(
-      (category, index, self) => self.indexOf(category) === index
-   );
+export const categoriesURL = `https://my-json-server.typicode.com/Manoaraujo/LivroReceitas-api/categories`;
+// export const categoriesURL = `http://localhost:3000/categories`;
+
+export function CategoriesList({ children }) {
+   const [categories, setCategories] = useState([]);
+
+   const addNewCategory = (newCategory) => {
+      setCategories([...categories, newCategory]);
+
+      axios
+         .post(categoriesURL, newCategory)
+         .then((response) => {
+            console.log(
+               "Categoria added successfully:",
+               categories,
+               response.data
+            );
+         })
+         .catch((error) => {
+            console.error("Failed to add category:", error);
+         });
+   };
+
+   useEffect(() => {
+      axios
+         .get(categoriesURL)
+         .then((response) => {
+            setCategories(response.data);
+         })
+         .catch((error) => {
+            console.error("Não foi possível encontrar a categoria:", error);
+         });
+   }, []);
 
    return (
       <CategoriesContext.Provider
-         key={uniqueCategories.id}
-         value={{ uniqueCategories, addNewCategory }}
+         key={categories.id}
+         value={{ categories, addNewCategory }}
       >
          {children}
       </CategoriesContext.Provider>

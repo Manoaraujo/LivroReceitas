@@ -6,13 +6,13 @@ import styles from "./Home.module.css";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
 
 export default function Home() {
-   const { uniqueCategories } = useContext(CategoriesContext);
+   const { categories } = useContext(CategoriesContext);
 
    return (
       <div className={styles.mainContainer}>
          <BannerBackground />
 
-         {uniqueCategories.map((category) => (
+         {categories.map((category) => (
             <section key={category.id} className={styles.videosContainer}>
                <SimpleSlider category={category} />
             </section>
