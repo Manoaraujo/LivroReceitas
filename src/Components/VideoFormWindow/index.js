@@ -26,9 +26,10 @@ export default function VideoFormWindow({ children }) {
          id: movies.length + 1,
          title: formData.title,
          category: formData.category,
-         url: formData.link,
+         url: formData.linkEmbed,
          description: formData.description,
       };
+      // console.log(formData);
       AddVideo(newVideo);
       setAdded(true);
    };

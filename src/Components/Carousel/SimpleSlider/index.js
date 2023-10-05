@@ -12,43 +12,47 @@ export default function SimpleSlider({ category }) {
    const movieCategory = movies.filter(
       (movie) => movie.category === category.name
    );
-
-   if (movieCategory.length < 5) {
-      const settings = {
-         dots: true,
-         infinite: true,
-         speed: 500,
-         slidesToShow: movieCategory.length,
-         slidesToScroll: 1,
-      };
-
-      return (
-         <div className={styles.container}>
-            <Category>{category.name}</Category>
-            <Slider {...settings}>
-               {movieCategory.reverse().map((movie, index) => (
-                  <MovieCard key={index} movie={movie} />
-               ))}
-            </Slider>
-         </div>
-      );
+   console.log(movieCategory);
+   if (movieCategory.length === 0) {
+      return <div></div>;
    } else {
-      const settings = {
-         dots: true,
-         infinite: true,
-         speed: 500,
-         slidesToShow: 5,
-         slidesToScroll: 1,
-      };
-      return (
-         <div className={styles.container}>
-            <Category>{category.name}</Category>
-            <Slider {...settings}>
-               {movieCategory.reverse().map((movie, index) => (
-                  <MovieCard key={index} movie={movie} />
-               ))}
-            </Slider>
-         </div>
-      );
+      if (movieCategory.length < 5) {
+         const settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: movieCategory.length,
+            slidesToScroll: 1,
+         };
+
+         return (
+            <div className={styles.container}>
+               <Category>{category.name}</Category>
+               <Slider {...settings}>
+                  {movieCategory.reverse().map((movie, index) => (
+                     <MovieCard key={index} movie={movie} />
+                  ))}
+               </Slider>
+            </div>
+         );
+      } else {
+         const settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+         };
+         return (
+            <div className={styles.container}>
+               <Category>{category.name}</Category>
+               <Slider {...settings}>
+                  {movieCategory.reverse().map((movie, index) => (
+                     <MovieCard key={index} movie={movie} />
+                  ))}
+               </Slider>
+            </div>
+         );
+      }
    }
 }

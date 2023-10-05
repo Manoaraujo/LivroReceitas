@@ -7,6 +7,11 @@ import styles from "./NewCategoryForm.module.css";
 export default function NewCategoryForm({ onFormSubmit }) {
    const [newCategory, setNewCategory] = useState("");
 
+   function capitalizeFirstLetter(str) {
+      // Transforma a primeira letra em maiúscula e as demais em minúsculas
+      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+   }
+
    return (
       <form
          className={styles.container}
@@ -24,6 +29,7 @@ export default function NewCategoryForm({ onFormSubmit }) {
             color="warning"
             label="Nome"
             margin="normal"
+            inputProps={{ maxLength: 10 }}
             fullWidth
             required
          />
@@ -31,7 +37,7 @@ export default function NewCategoryForm({ onFormSubmit }) {
             <Button
                onClick={(e) => {
                   e.preventDefault();
-                  onFormSubmit(newCategory);
+                  onFormSubmit(capitalizeFirstLetter(newCategory));
                }}
                color="danger"
             >
