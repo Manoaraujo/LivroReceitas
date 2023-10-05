@@ -6,14 +6,18 @@ import { useContext } from "react";
 import { MovieListContext } from "../../Contexts/MovieList";
 import CategoryFormWindow from "../CategoryFormWindow";
 import styles from "./VideoFormWindow.module.css";
+import DoneBox from "../DoneBox";
+import { useEffect } from "react";
 
 export default function VideoFormWindow({ children }) {
    const [open, setOpen] = useState(false);
+   const [added, setAdded] = useState(false);
    const handleOpen = () => {
       setOpen(true);
    };
    const handleClose = () => {
       setOpen(false);
+      setAdded(false);
    };
 
    const { movies, AddVideo } = useContext(MovieListContext);
@@ -26,9 +30,18 @@ export default function VideoFormWindow({ children }) {
          description: formData.description,
       };
       AddVideo(newVideo);
-      alert("Video adicionado com sucesso!");
-      handleClose();
+      setAdded(true);
    };
+
+   useEffect(() => {
+      if (added) {
+         const timer = setTimeout(() => {
+            handleClose();
+         }, 2000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [added]);
 
    return (
       <div>
@@ -37,24 +50,31 @@ export default function VideoFormWindow({ children }) {
          </Button>
          <Modal open={open} onClose={handleClose}>
             <Box className={styles.box}>
-               <Typography
-                  align="center"
-                  color="primary"
-                  variant="h4"
-                  component="h2"
+               <DoneBox
+                  okMessage="Video adicionado com sucesso!"
+                  success={added}
                >
-                  Novo vídeo
-               </Typography>
+                  <Typography
+                     sx={{
+                        color: "var(--medium-red)",
+                     }}
+                     align="center"
+                     variant="h4"
+                     component="h2"
+                  >
+                     Novo vídeo
+                  </Typography>
 
-               <NewVideoForm
-                  novaCategoria={
-                     <CategoryFormWindow>+ Nova Categoria</CategoryFormWindow>
-                  }
-                  onFormSubmit={PostVideo}
-                  id="modal-modal-description"
-                  sx={{ mt: 2 }}
-               />
-               {/* <CategoryFormWindow>+ Categoria</CategoryFormWindow> */}
+                  <NewVideoForm
+                     novaCategoria={
+                        <CategoryFormWindow>
+                           + Nova Categoria
+                        </CategoryFormWindow>
+                     }
+                     onFormSubmit={PostVideo}
+                     sx={{ mt: 2 }}
+                  />
+               </DoneBox>
             </Box>
          </Modal>
       </div>

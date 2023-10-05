@@ -80,9 +80,9 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
                      {category.name}
                   </MenuItem>
                ))}
-               {novaCategoria}
             </Select>
          </FormControl>
+         {novaCategoria}
          <TextField
             value={description}
             onChange={(e) => {
