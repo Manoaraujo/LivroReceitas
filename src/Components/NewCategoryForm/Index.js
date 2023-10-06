@@ -29,7 +29,6 @@ export default function NewCategoryForm({ onFormSubmit, handleClose }) {
             color="warning"
             label="Nome"
             margin="normal"
-            inputProps={{ maxLength: 10 }}
             fullWidth
             required
          />

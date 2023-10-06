@@ -10,12 +10,10 @@ import {
 import { useState } from "react";
 import { useContext } from "react";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
-import extractVideoId from "../../helpers/extractVideoId";
 
 function NewVideoForm({ onFormSubmit, novaCategoria }) {
    const [title, setTitle] = useState("");
    const [link, setLink] = useState("");
-   const [linkEmbed, setEmbed] = useState("");
    const [category, setCategory] = useState("");
    const [description, setDescription] = useState("");
 
@@ -27,23 +25,12 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
       setDescription(data);
    }
 
-   function createEmbed(videoId) {
-      if (videoId) {
-         setEmbed(`https://youtube.com/embed/${videoId}`);
-      }
-   }
-
    return (
       <form
          className={styles.container}
          onSubmit={(e) => {
             e.preventDefault();
-            onFormSubmit({
-               title,
-               linkEmbed,
-               category,
-               description,
-            });
+            onFormSubmit({ title, link, category, description });
          }}
       >
          <TextField
@@ -63,7 +50,6 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
             onChange={(e) => {
                setLink(e.target.value);
             }}
-            onBlur={(e) => createEmbed(extractVideoId(e.target.value))}
             InputProps={{ className: styles.input }}
             color="warning"
             label="Link do video"
