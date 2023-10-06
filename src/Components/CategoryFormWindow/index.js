@@ -5,27 +5,30 @@ import { Box, Modal, Typography } from "@mui/material";
 import NewCategoryForm from "../NewCategoryForm/Index";
 import styles from "./CategoryFormWindow.module.css";
 import DoneBox from "../DoneBox";
-import { HandleContext } from "../../Contexts/HandleModalWindow";
 import { useEffect } from "react";
 import { useState } from "react";
 
 export default function CategoryFormWindow({ children }) {
-   const { added, setAdded, handleClose } = useContext(HandleContext);
-
-   const [openCategoryForm, setOpenCategoryForm] = useState(false);
-
    const { categories, addNewCategory } = useContext(CategoriesContext);
+   const [open, setOpen] = useState(false);
+   const [added, setAdded] = useState(false);
+   const handleOpen = () => {
+      setOpen(true);
+   };
+   const handleClose = () => {
+      setOpen(false);
+      setAdded(false);
+   };
 
    useEffect(() => {
       if (added) {
          const timer = setTimeout(() => {
             handleClose();
-         }, 1000);
+         }, 2000);
 
          return () => clearTimeout(timer);
       }
-   }, [added, handleClose]);
-
+   }, [added]);
    function AddCategory(formData) {
       if (formData !== "" && !categories.find((c) => c.name === formData)) {
          const newAddedCategory = {
@@ -51,12 +54,12 @@ export default function CategoryFormWindow({ children }) {
                background: "none",
                ":hover": { background: "none" },
             }}
-            onClick={() => setOpenCategoryForm(true)}
+            onClick={handleOpen}
          >
             {children}
          </Button>
 
-         <Modal hideBackdrop open={openCategoryForm} onClose={handleClose}>
+         <Modal hideBackdrop open={open} onClose={handleClose}>
             <Box className={styles.CategoryBox}>
                <DoneBox
                   okMessage="Categoria adicionada com sucesso!"
@@ -74,10 +77,7 @@ export default function CategoryFormWindow({ children }) {
                   >
                      {children}
                   </Typography>
-                  <NewCategoryForm
-                     handleClose={() => setOpenCategoryForm(false)}
-                     onFormSubmit={AddCategory}
-                  />
+                  <NewCategoryForm onFormSubmit={AddCategory} />
                </DoneBox>
             </Box>
          </Modal>

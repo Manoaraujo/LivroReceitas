@@ -7,20 +7,28 @@ import CategoryFormWindow from "../CategoryFormWindow";
 import styles from "./VideoFormWindow.module.css";
 import DoneBox from "../DoneBox";
 import { useEffect } from "react";
-import { HandleContext } from "../../Contexts/HandleModalWindow";
+import { useState } from "react";
 
 export default function VideoFormWindow({ children }) {
-   // const [open, setOpen] = useState(false);
-   // const [added, setAdded] = useState(false);
-   // const handleOpen = () => {
-   //    setOpen(true);
-   // };
-   // const handleClose = () => {
-   //    setOpen(false);
-   //    setAdded(false);
-   // };
-   const { added, open, setAdded, handleClose, handleOpen } =
-      useContext(HandleContext);
+   const [open, setOpen] = useState(false);
+   const [added, setAdded] = useState(false);
+   const handleOpen = () => {
+      setOpen(true);
+   };
+   const handleClose = () => {
+      setOpen(false);
+      setAdded(false);
+   };
+
+   useEffect(() => {
+      if (added) {
+         const timer = setTimeout(() => {
+            handleClose();
+         }, 2000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [added]);
 
    const { movies, AddVideo } = useContext(MovieListContext);
    const PostVideo = (formData) => {
@@ -34,16 +42,6 @@ export default function VideoFormWindow({ children }) {
       AddVideo(newVideo);
       setAdded(true);
    };
-
-   useEffect(() => {
-      if (added) {
-         const timer = setTimeout(() => {
-            handleClose();
-         }, 2000);
-
-         return () => clearTimeout(timer);
-      }
-   }, [added, handleClose]);
 
    return (
       <div>
