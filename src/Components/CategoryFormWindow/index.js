@@ -45,6 +45,7 @@ export default function CategoryFormWindow({ children }) {
    return (
       <>
          <Button
+            size="small"
             sx={{
                color: "var(--medium-red)",
                width: "120px",
@@ -76,7 +77,10 @@ export default function CategoryFormWindow({ children }) {
                   >
                      {children}
                   </Typography>
-                  <NewCategoryForm onFormSubmit={AddCategory} />
+                  <NewCategoryForm
+                     handleClose={handleClose}
+                     onFormSubmit={AddCategory}
+                  />
                </DoneBox>
             </Box>
          </Modal>

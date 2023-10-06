@@ -26,6 +26,7 @@ export default function NewCategoryForm({ onFormSubmit, handleClose }) {
                setNewCategory(e.target.value);
             }}
             InputProps={{ className: styles.input }}
+            inputProps={{ maxLength: 12 }}
             color="warning"
             label="Nome"
             margin="normal"
