@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@mui/joy";
 import styles from "./NewCategoryForm.module.css";
 
-export default function NewCategoryForm({ onFormSubmit }) {
+export default function NewCategoryForm({ onFormSubmit, handleClose }) {
    const [newCategory, setNewCategory] = useState("");
 
    function capitalizeFirstLetter(str) {
@@ -33,7 +33,7 @@ export default function NewCategoryForm({ onFormSubmit }) {
             fullWidth
             required
          />
-         <section className={styles.button}>
+         <section className={styles.buttonContainer}>
             <Button
                onClick={(e) => {
                   e.preventDefault();
@@ -42,6 +42,9 @@ export default function NewCategoryForm({ onFormSubmit }) {
                color="danger"
             >
                Salvar
+            </Button>
+            <Button onClick={handleClose} color="danger">
+               fechar
             </Button>
          </section>
       </form>

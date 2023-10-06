@@ -1,24 +1,30 @@
-import { useContext, useEffect } from "react";
-import { useState } from "react";
+import { useContext } from "react";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
 import { Button } from "@mui/joy";
 import { Box, Modal, Typography } from "@mui/material";
 import NewCategoryForm from "../NewCategoryForm/Index";
 import styles from "./CategoryFormWindow.module.css";
 import DoneBox from "../DoneBox";
+import { HandleContext } from "../../Contexts/HandleModalWindow";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export default function CategoryFormWindow({ children }) {
-   const [open, setOpen] = useState(false);
-   const [added, setAdded] = useState(false);
-   const handleOpen = () => {
-      setOpen(true);
-   };
-   const handleClose = () => {
-      setOpen(false);
-      setAdded(false);
-   };
+   const { added, setAdded, handleClose } = useContext(HandleContext);
+
+   const [openCategoryForm, setOpenCategoryForm] = useState(false);
 
    const { categories, addNewCategory } = useContext(CategoriesContext);
+
+   useEffect(() => {
+      if (added) {
+         const timer = setTimeout(() => {
+            handleClose();
+         }, 1000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [added, handleClose]);
 
    function AddCategory(formData) {
       if (formData !== "" && !categories.find((c) => c.name === formData)) {
@@ -29,20 +35,9 @@ export default function CategoryFormWindow({ children }) {
          addNewCategory(newAddedCategory);
          setAdded(true);
       } else {
-         setAdded("existe");
          handleClose();
       }
    }
-
-   useEffect(() => {
-      if (added) {
-         const timer = setTimeout(() => {
-            handleClose();
-         }, 1000);
-
-         return () => clearTimeout(timer);
-      }
-   }, [added]);
 
    return (
       <>
@@ -56,12 +51,12 @@ export default function CategoryFormWindow({ children }) {
                background: "none",
                ":hover": { background: "none" },
             }}
-            // color="danger"
-            onClick={handleOpen}
+            onClick={() => setOpenCategoryForm(true)}
          >
             {children}
          </Button>
-         <Modal hideBackdrop open={open} onClose={handleClose}>
+
+         <Modal hideBackdrop open={openCategoryForm} onClose={handleClose}>
             <Box className={styles.CategoryBox}>
                <DoneBox
                   okMessage="Categoria adicionada com sucesso!"
@@ -79,7 +74,10 @@ export default function CategoryFormWindow({ children }) {
                   >
                      {children}
                   </Typography>
-                  <NewCategoryForm onFormSubmit={AddCategory} />
+                  <NewCategoryForm
+                     handleClose={() => setOpenCategoryForm(false)}
+                     onFormSubmit={AddCategory}
+                  />
                </DoneBox>
             </Box>
          </Modal>

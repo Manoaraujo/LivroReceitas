@@ -2,3 +2,7 @@
    color: var(--light-red);
    background-color: var(--grey);
 }
+.buttonContainer {
+   display: flex;
+   gap: 10px;
+}

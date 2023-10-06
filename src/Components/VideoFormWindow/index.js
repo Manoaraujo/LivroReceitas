@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Typography, Box, Modal } from "@mui/material";
 import { Button } from "@mui/joy";
 import NewVideoForm from "../NewVideoForm/Index";
@@ -8,17 +7,20 @@ import CategoryFormWindow from "../CategoryFormWindow";
 import styles from "./VideoFormWindow.module.css";
 import DoneBox from "../DoneBox";
 import { useEffect } from "react";
+import { HandleContext } from "../../Contexts/HandleModalWindow";
 
 export default function VideoFormWindow({ children }) {
-   const [open, setOpen] = useState(false);
-   const [added, setAdded] = useState(false);
-   const handleOpen = () => {
-      setOpen(true);
-   };
-   const handleClose = () => {
-      setOpen(false);
-      setAdded(false);
-   };
+   // const [open, setOpen] = useState(false);
+   // const [added, setAdded] = useState(false);
+   // const handleOpen = () => {
+   //    setOpen(true);
+   // };
+   // const handleClose = () => {
+   //    setOpen(false);
+   //    setAdded(false);
+   // };
+   const { added, open, setAdded, handleClose, handleOpen } =
+      useContext(HandleContext);
 
    const { movies, AddVideo } = useContext(MovieListContext);
    const PostVideo = (formData) => {
@@ -29,7 +31,6 @@ export default function VideoFormWindow({ children }) {
          url: formData.linkEmbed,
          description: formData.description,
       };
-      // console.log(formData);
       AddVideo(newVideo);
       setAdded(true);
    };
@@ -42,7 +43,7 @@ export default function VideoFormWindow({ children }) {
 
          return () => clearTimeout(timer);
       }
-   }, [added]);
+   }, [added, handleClose]);
 
    return (
       <div>
