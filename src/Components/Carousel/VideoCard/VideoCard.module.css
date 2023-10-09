@@ -13,3 +13,6 @@
    color: white;
    padding: 10px 0 0 10px;
 }
+.url {
+   text-decoration: none;
+}

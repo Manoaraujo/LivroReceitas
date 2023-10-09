@@ -1,117 +1,4 @@
 {
-<<<<<<< HEAD
-  "categories": [
-    {
-      "id": 1,
-      "name": "Bolos"
-    },
-    {
-      "id": 2,
-      "name": "Doces"
-    }
-  ],
-  "videos": [
-    {
-      "id": 1,
-      "title": "Bolo de Milho",
-      "category": "Bolos",
-      "url": "https://www.youtube.com/embed/JwUR8_OoHNI?si=PqGVx4uMAzZp4ZXP",
-      "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
-    },
-    {
-      "id": 2,
-      "title": "Bolo de Cenoura",
-      "category": "Bolos",
-      "url": "https://www.youtube.com/embed/__rtbSd_OwI?si=xB7bg2W20qtbWCZJ",
-      "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
-    },
-    {
-      "id": 3,
-      "title": "Bolo de Banana",
-      "category": "Bolos",
-      "url": "https://www.youtube.com/embed/UkLRzwy7GHI?si=H5D4Jje3sg4RBLxf",
-      "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
-    },
-    {
-      "id": 4,
-      "title": "Bolo de Nozes",
-      "category": "Bolos",
-      "url": "https://www.youtube.com/embed/IZIA3vbcZ8k?si=rOvkeHbyv_iPlJ2g",
-      "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
-    },
-    {
-      "id": 5,
-      "title": "Bolo de Chocolate",
-      "category": "Bolos",
-      "url": "https://www.youtube.com/embed/Krp1tWm80aU?si=HpIlOpfgMZYRldRx",
-      "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
-    },
-    {
-      "id": 6,
-      "title": "Brownie",
-      "category": "Bolos",
-      "url": "https://www.youtube.com/embed/W0Oi_KSLs9Y?si=wTc0XU-Nolr1-bAu",
-      "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
-    },
-    {
-      "id": 7,
-      "title": "Cupcake de café",
-      "category": "Bolos",
-      "url": "https://www.youtube.com/embed/IcHA700rGfg?si=2jkhmqUx5M50G1Q5",
-      "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
-    },
-    {
-      "id": 8,
-      "title": "Torta de maçã",
-      "category": "Doces",
-      "url": "https://www.youtube.com/embed/RA5FGmpLWDM?si=fhObpDrWkq7kawzK",
-      "description": "Doces para todos os gostos, tortas, pavês, etc..."
-    },
-    {
-      "id": 9,
-      "title": "Creme de confeiteiro",
-      "category": "Doces",
-      "url": "https://www.youtube.com/embed/dq1WiCia2Y4?si=rgBG19sTe5gmo_e5",
-      "description": "Doces para todos os gostos, tortas, pavês, etc..."
-    },
-    {
-      "id": 10,
-      "title": "Cheesecake na Air Fryer",
-      "category": "Doces",
-      "url": "https://www.youtube.com/embed/6g3KA2SIJAI?si=URWJHumPqXCr5tnA",
-      "description": "Doces para todos os gostos, tortas, pavês, etc..."
-    },
-    {
-      "id": 11,
-      "title": "Torta de Peras e Avelãs",
-      "category": "Doces",
-      "url": "https://www.youtube.com/embed/e1TotJ0hi3s?si=PpJ0iXLq6f4Q2AON",
-      "description": "Doces para todos os gostos, tortas, pavês, etc..."
-    },
-    {
-      "id": 12,
-      "title": "Sablée de castanhas",
-      "category": "Doces",
-      "url": "https://www.youtube.com/embed/EL9H1LvW2Wo?si=DToQfYXa2zqgNtPo",
-      "description": "Doces para todos os gostos, tortas, pavês, etc..."
-    },
-    {
-      "id": 13,
-      "title": "Mousse de cacau",
-      "category": "Doces",
-      "url": "https://www.youtube.com/embed/0otiR8LOn4g?si=SuCdM57LbUla8igv",
-      "description": "Doces para todos os gostos, tortas, pavês, etc..."
-    },
-    {
-      "id": 14,
-      "title": "Torta de Morangos",
-      "category": "Doces",
-      "url": "https://youtube.com/embed/nWLZRg2ka4A",
-      "description": "Receita de confeiteira!"
-    }
-  ]
-}
-=======
    "categories": [
       {
          "id": 1,
@@ -127,94 +14,99 @@
          "id": 1,
          "title": "Bolo de Milho",
          "category": "Bolos",
-         "url": "https://www.youtube.com/embed/JwUR8_OoHNI?si=PqGVx4uMAzZp4ZXP"
+         "url": "https://www.youtube.com/embed/JwUR8_OoHNI?si=PqGVx4uMAzZp4ZXP",
+         "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
       },
       {
          "id": 2,
          "title": "Bolo de Cenoura",
          "category": "Bolos",
-         "url": "https://www.youtube.com/embed/__rtbSd_OwI?si=xB7bg2W20qtbWCZJ"
+         "url": "https://www.youtube.com/embed/__rtbSd_OwI?si=xB7bg2W20qtbWCZJ",
+         "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
       },
       {
          "id": 3,
          "title": "Bolo de Banana",
          "category": "Bolos",
-         "url": "https://www.youtube.com/embed/UkLRzwy7GHI?si=H5D4Jje3sg4RBLxf"
+         "url": "https://www.youtube.com/embed/UkLRzwy7GHI?si=H5D4Jje3sg4RBLxf",
+         "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
       },
       {
          "id": 4,
          "title": "Bolo de Nozes",
          "category": "Bolos",
-         "url": "https://www.youtube.com/embed/IZIA3vbcZ8k?si=rOvkeHbyv_iPlJ2g"
+         "url": "https://www.youtube.com/embed/IZIA3vbcZ8k?si=rOvkeHbyv_iPlJ2g",
+         "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
       },
       {
          "id": 5,
          "title": "Bolo de Chocolate",
          "category": "Bolos",
-         "url": "https://www.youtube.com/embed/Krp1tWm80aU?si=HpIlOpfgMZYRldRx"
+         "url": "https://www.youtube.com/embed/Krp1tWm80aU?si=HpIlOpfgMZYRldRx",
+         "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
       },
       {
          "id": 6,
          "title": "Brownie",
          "category": "Bolos",
-         "url": "https://www.youtube.com/embed/W0Oi_KSLs9Y?si=wTc0XU-Nolr1-bAu"
+         "url": "https://www.youtube.com/embed/W0Oi_KSLs9Y?si=wTc0XU-Nolr1-bAu",
+         "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
       },
       {
          "id": 7,
          "title": "Cupcake de café",
          "category": "Bolos",
-         "url": "https://www.youtube.com/embed/IcHA700rGfg?si=2jkhmqUx5M50G1Q5"
+         "url": "https://www.youtube.com/embed/IcHA700rGfg?si=2jkhmqUx5M50G1Q5",
+         "description": "Aqui você encontra bolos de todos os estilos, confeitados, fofinhos, gelados, para tomar com café, a escolha é sua"
       },
       {
          "id": 8,
          "title": "Torta de maçã",
          "category": "Doces",
-         "url": "https://www.youtube.com/embed/RA5FGmpLWDM?si=fhObpDrWkq7kawzK"
+         "url": "https://www.youtube.com/embed/RA5FGmpLWDM?si=fhObpDrWkq7kawzK",
+         "description": "Doces para todos os gostos, tortas, pavês, etc..."
       },
       {
          "id": 9,
          "title": "Creme de confeiteiro",
          "category": "Doces",
-         "url": "https://www.youtube.com/embed/dq1WiCia2Y4?si=rgBG19sTe5gmo_e5"
+         "url": "https://www.youtube.com/embed/dq1WiCia2Y4?si=rgBG19sTe5gmo_e5",
+         "description": "Doces para todos os gostos, tortas, pavês, etc..."
       },
       {
          "id": 10,
          "title": "Cheesecake na Air Fryer",
          "category": "Doces",
-         "url": "https://www.youtube.com/embed/6g3KA2SIJAI?si=URWJHumPqXCr5tnA"
+         "url": "https://www.youtube.com/embed/6g3KA2SIJAI?si=URWJHumPqXCr5tnA",
+         "description": "Doces para todos os gostos, tortas, pavês, etc..."
       },
       {
          "id": 11,
          "title": "Torta de Peras e Avelãs",
          "category": "Doces",
-         "url": "https://www.youtube.com/embed/e1TotJ0hi3s?si=PpJ0iXLq6f4Q2AON"
+         "url": "https://www.youtube.com/embed/e1TotJ0hi3s?si=PpJ0iXLq6f4Q2AON",
+         "description": "Doces para todos os gostos, tortas, pavês, etc..."
       },
       {
          "id": 12,
          "title": "Sablée de castanhas",
          "category": "Doces",
-         "url": "https://www.youtube.com/embed/EL9H1LvW2Wo?si=DToQfYXa2zqgNtPo"
+         "url": "https://www.youtube.com/embed/EL9H1LvW2Wo?si=DToQfYXa2zqgNtPo",
+         "description": "Doces para todos os gostos, tortas, pavês, etc..."
       },
       {
          "id": 13,
          "title": "Mousse de cacau",
          "category": "Doces",
-         "url": "https://www.youtube.com/embed/0otiR8LOn4g?si=SuCdM57LbUla8igv"
+         "url": "https://www.youtube.com/embed/0otiR8LOn4g?si=SuCdM57LbUla8igv",
+         "description": "Doces para todos os gostos, tortas, pavês, etc..."
       },
       {
          "id": 14,
-         "title": "Bolo de manga, limão e coco",
-         "category": "Bolos",
-         "url": "https://www.youtube.com/embed/NqRohNdbbP0?si=6PNQ_NmjyB173BBv",
-         "description": "Impossível resistir! Um dos bolos mais gostosos que já fiz!"
-      },
-      {
-         "id": 15,
          "title": "Torta de Morangos",
          "category": "Doces",
-         "url": "https://www.youtube.com/embed/nWLZRg2ka4A?si=s6_wKN681bHcRGHS\"",
+         "url": "https://youtube.com/embed/nWLZRg2ka4A",
          "description": "Receita de confeiteira!"
       }
    ]
 }
->>>>>>> parent of e84574f (fixing case of categories)

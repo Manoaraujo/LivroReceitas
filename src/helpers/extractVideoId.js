@@ -10,7 +10,6 @@ export default function extractVideoId(url) {
    if (linkMatch && linkMatch[1]) {
       return linkMatch[1];
    } else {
-      // Se não houver correspondência, retorna null ou uma mensagem de erro, dependendo do que você preferir
-      return console.log("Url não válida.");
+      return false;
    }
 }

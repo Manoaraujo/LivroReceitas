@@ -9,7 +9,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export default function CategoryFormWindow({ children }) {
-   const { categories, addNewCategory } = useContext(CategoriesContext);
    const [open, setOpen] = useState(false);
    const [added, setAdded] = useState(false);
    const handleOpen = () => {
@@ -29,6 +28,9 @@ export default function CategoryFormWindow({ children }) {
          return () => clearTimeout(timer);
       }
    }, [added]);
+
+   const { categories, addNewCategory } = useContext(CategoriesContext);
+
    function AddCategory(formData) {
       if (formData !== "" && !categories.find((c) => c.name === formData)) {
          const newAddedCategory = {

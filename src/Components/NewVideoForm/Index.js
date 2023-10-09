@@ -14,15 +14,15 @@ import extractVideoId from "../../helpers/extractVideoId";
 
 function NewVideoForm({ onFormSubmit, novaCategoria }) {
    const [title, setTitle] = useState("");
-   const [link, setLink] = useState("");
    const [linkEmbed, setEmbed] = useState("");
    const [category, setCategory] = useState("");
    const [description, setDescription] = useState("");
+   const [error, setError] = useState(false);
 
    const { categories } = useContext(CategoriesContext);
 
    function clearData(data) {
-      setLink(data);
+      setEmbed(data);
       setTitle(data);
       setDescription(data);
    }
@@ -30,9 +30,14 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
    function createEmbed(videoId) {
       if (videoId) {
          setEmbed(`https://youtube.com/embed/${videoId}`);
+         setError(false);
+      } else {
+         setEmbed("");
+         setError(true);
       }
    }
 
+   console.log(error);
    return (
       <form
          className={styles.container}
@@ -59,13 +64,15 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
             required
          />
          <TextField
-            value={link}
+            value={linkEmbed}
             onChange={(e) => {
-               setLink(e.target.value);
+               setEmbed(e.target.value);
             }}
             onBlur={(e) => createEmbed(extractVideoId(e.target.value))}
             InputProps={{ className: styles.input }}
             color="warning"
+            error={error}
+            helperText={"Url não válida."}
             label="Link do video"
             placeholder="ATENÇÃO: apenas videos do YouTube"
             margin="normal"
@@ -73,6 +80,7 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
             fullWidth
             required
          />
+
          <FormControl InputProps={{ className: styles.input }}>
             <InputLabel color="warning" className={styles.label} id="Categoria">
                Categoria

@@ -1,6 +1,6 @@
 import styles from "./Player.module.css";
 
-function Player({ movie }) {
+export default function Player({ movie }) {
    return (
       <iframe
          className={styles.player}
@@ -11,5 +11,3 @@ function Player({ movie }) {
       ></iframe>
    );
 }
-
-export default Player;

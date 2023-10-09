@@ -8,6 +8,7 @@ import styles from "./VideoFormWindow.module.css";
 import DoneBox from "../DoneBox";
 import { useEffect } from "react";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function VideoFormWindow({ children }) {
    const [open, setOpen] = useState(false);
@@ -66,6 +67,7 @@ export default function VideoFormWindow({ children }) {
                   </Typography>
 
                   <NewVideoForm
+                     key={uuidv4()}
                      novaCategoria={
                         <CategoryFormWindow>
                            + Nova Categoria
