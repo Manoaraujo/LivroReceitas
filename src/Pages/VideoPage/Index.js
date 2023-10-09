@@ -15,7 +15,9 @@ function VideoPage() {
    return (
       <div className={styles.container}>
          <section className={styles.videoArea}>
-            <Typography className={styles.title}>{video.title}</Typography>
+            <Typography variant="h4" className={styles.title}>
+               {video.title}
+            </Typography>
             <div className={styles.player}>
                <Player movie={video} />
             </div>

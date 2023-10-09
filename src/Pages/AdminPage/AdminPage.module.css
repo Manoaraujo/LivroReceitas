@@ -1,0 +1,11 @@
+.container {
+   height: 510px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--color-background);
+}
+.table {
+   background-color: var(--grey);
+   border-radius: 6px;
+}

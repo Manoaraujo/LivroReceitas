@@ -1,5 +1,4 @@
 .container {
-   height: 1024px;
    background-color: var(--color-background);
    height: auto;
 }
@@ -18,7 +17,6 @@
 }
 
 .title {
-   font-size: 32px;
    color: white;
 }
 
