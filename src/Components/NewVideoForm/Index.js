@@ -12,11 +12,11 @@ import { useContext } from "react";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
 import extractVideoId from "../../helpers/extractVideoId";
 
-function NewVideoForm({ onFormSubmit, novaCategoria }) {
-   const [title, setTitle] = useState("");
-   const [linkEmbed, setEmbed] = useState("");
-   const [category, setCategory] = useState("");
-   const [description, setDescription] = useState("");
+function NewVideoForm({ onFormSubmit, novaCategoria, videoData }) {
+   const [title, setTitle] = useState(videoData.title);
+   const [linkEmbed, setEmbed] = useState(videoData.url);
+   const [category, setCategory] = useState(videoData.category);
+   const [description, setDescription] = useState(videoData.description);
    const [error, setError] = useState(false);
 
    const { categories } = useContext(CategoriesContext);
@@ -37,7 +37,6 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
       }
    }
 
-   console.log(error);
    return (
       <form
          className={styles.container}
@@ -95,6 +94,7 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
             >
                {categories.map((category) => (
                   <MenuItem
+                     key={category.name}
                      value={category.name}
                      onClick={() => setCategory(category.name)}
                      className={styles.input}

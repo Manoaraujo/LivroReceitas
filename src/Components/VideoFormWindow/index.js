@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-export default function VideoFormWindow({ children }) {
+export default function VideoFormWindow({ children, videoData, teste }) {
    const [open, setOpen] = useState(false);
    const [added, setAdded] = useState(false);
    const handleOpen = () => {
@@ -43,7 +43,6 @@ export default function VideoFormWindow({ children }) {
       AddVideo(newVideo);
       setAdded(true);
    };
-
    return (
       <div>
          <Button color="danger" className={styles.button} onClick={handleOpen}>
@@ -63,10 +62,11 @@ export default function VideoFormWindow({ children }) {
                      variant="h4"
                      component="h2"
                   >
-                     Novo vídeo
+                     {children}
                   </Typography>
 
                   <NewVideoForm
+                     videoData={videoData}
                      key={uuidv4()}
                      novaCategoria={
                         <CategoryFormWindow>

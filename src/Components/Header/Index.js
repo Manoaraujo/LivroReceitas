@@ -2,7 +2,6 @@ import { Button } from "@mui/joy";
 import VideoFormWindow from "../VideoFormWindow";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
-import { Dashboard } from "@mui/icons-material";
 
 function Header() {
    return (
@@ -17,14 +16,14 @@ function Header() {
          <div className={styles.buttonArea}>
             <Link to={"/admin"}>
                <Button
-                  endIcon={<Dashboard />}
+                  // endIcon={<Dashboard />}
                   className={styles.button}
                   color="danger"
                >
                   Gerenciamento de videos
                </Button>
             </Link>
-            <VideoFormWindow>Novo Video</VideoFormWindow>
+            <VideoFormWindow videoData="">Novo Video</VideoFormWindow>
          </div>
       </section>
    );

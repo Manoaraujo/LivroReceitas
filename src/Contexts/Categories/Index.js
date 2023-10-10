@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { createContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const CategoriesContext = createContext();
 
@@ -40,7 +41,7 @@ export function CategoriesList({ children }) {
 
    return (
       <CategoriesContext.Provider
-         key={categories.id}
+         key={uuidv4()}
          value={{ categories, addNewCategory }}
       >
          {children}

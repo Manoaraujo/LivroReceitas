@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { createContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export const MovieListContext = createContext();
 
@@ -10,6 +11,32 @@ export const baseUrl = `https://my-json-server.typicode.com/Manoaraujo/LivroRece
 
 export const MovieList = ({ children }) => {
    const [movies, setMovies] = useState([]);
+
+   const EditVideo = (id, editedVideo) => {
+      setMovies([...movies, editedVideo]);
+      axios
+         .put(`${baseUrl}/${id}`, editedVideo)
+         .then((response) => {
+            console.log("Video edited successfully:", response.data);
+         })
+         .catch((error) => {
+            console.error("Failed to edit video:", error);
+         });
+   };
+   const DeleteVideo = (id) => {
+      axios
+         .delete(`${baseUrl}/${id}`)
+         .then((response) => {
+            console.log("Video deleted successfully:", response.data);
+
+            setMovies((prevMovies) =>
+               prevMovies.filter((movie) => movie.id !== id)
+            );
+         })
+         .catch((error) => {
+            console.error("Failed to delete video:", error);
+         });
+   };
 
    const AddVideo = (newVideo) => {
       setMovies([...movies, newVideo]);
@@ -35,7 +62,10 @@ export const MovieList = ({ children }) => {
    }, []);
 
    return (
-      <MovieListContext.Provider key={movies.id} value={{ movies, AddVideo }}>
+      <MovieListContext.Provider
+         key={uuidv4()}
+         value={{ movies, AddVideo, DeleteVideo, EditVideo }}
+      >
          {children}
       </MovieListContext.Provider>
    );
