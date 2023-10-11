@@ -8,10 +8,12 @@ import { Dashboard } from "@mui/icons-material";
 
 export default function Header() {
    const { isOpen, closeModal, openModal } = useModalFormContext();
+
    const handleClose = () => {
       closeModal();
       //   stopEditing();
    };
+
    return (
       <header className={styles.container}>
          <Link to={"/"}>
@@ -39,7 +41,7 @@ export default function Header() {
                + Novo video
             </Button>
          </div>
-         <Modal open={isOpen} onClose={handleClose}>
+         <Modal open={isOpen}>
             <Box className={styles.box}>
                <VideoForm handleCloseModal={handleClose} />
             </Box>

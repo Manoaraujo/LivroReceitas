@@ -2,9 +2,9 @@ import { TextField } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { Button } from "@mui/joy";
-import styles from "./NewCategoryForm.module.css";
+import styles from "./CategoryForm.module.css";
 
-export default function NewCategoryForm({ onFormSubmit, handleClose }) {
+export default function CategoryForm({ onFormSubmit, handleClose }) {
    const [newCategory, setNewCategory] = useState("");
 
    function capitalizeFirstLetter(str) {

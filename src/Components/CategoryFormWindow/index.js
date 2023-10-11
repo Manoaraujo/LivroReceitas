@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
 import { Button } from "@mui/joy";
 import { Box, Modal, Typography } from "@mui/material";
-import NewCategoryForm from "../NewCategoryForm/Index";
+import CategoryForm from "../CategoryForm/Index";
 import styles from "./CategoryFormWindow.module.css";
 import DoneBox from "../DoneBox";
 import { useEffect } from "react";
@@ -79,7 +79,7 @@ export default function CategoryFormWindow({ children }) {
                   >
                      {children}
                   </Typography>
-                  <NewCategoryForm
+                  <CategoryForm
                      handleClose={handleClose}
                      onFormSubmit={AddCategory}
                   />

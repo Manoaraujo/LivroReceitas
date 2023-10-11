@@ -12,6 +12,30 @@ export const baseUrl = `https://my-json-server.typicode.com/Manoaraujo/LivroRece
 export const MovieList = ({ children }) => {
    const [movies, setMovies] = useState([]);
 
+   useEffect(() => {
+      axios
+         .get(baseUrl)
+         .then((response) => {
+            setMovies(response.data);
+         })
+         .catch((error) => {
+            console.error("Não foi possível encontrar os vídeos:", error);
+         });
+   }, []);
+
+   const AddVideo = (newVideo) => {
+      setMovies([...movies, newVideo]);
+
+      axios
+         .post(baseUrl, newVideo)
+         .then((response) => {
+            console.log("Video added successfully:", movies, response.data);
+         })
+         .catch((error) => {
+            console.error("Failed to add video:", error);
+         });
+   };
+
    const EditVideo = (id, editedVideo) => {
       setMovies([...movies, editedVideo]);
       axios
@@ -23,6 +47,7 @@ export const MovieList = ({ children }) => {
             console.error("Failed to edit video:", error);
          });
    };
+
    const DeleteVideo = (id) => {
       axios
          .delete(`${baseUrl}/${id}`)
@@ -37,29 +62,6 @@ export const MovieList = ({ children }) => {
             console.error("Failed to delete video:", error);
          });
    };
-
-   const AddVideo = (newVideo) => {
-      setMovies([...movies, newVideo]);
-
-      axios
-         .post(baseUrl, newVideo)
-         .then((response) => {
-            console.log("Video added successfully:", movies, response.data);
-         })
-         .catch((error) => {
-            console.error("Failed to add video:", error);
-         });
-   };
-   useEffect(() => {
-      axios
-         .get(baseUrl)
-         .then((response) => {
-            setMovies(response.data);
-         })
-         .catch((error) => {
-            console.error("Não foi possível encontrar os vídeos:", error);
-         });
-   }, []);
 
    return (
       <MovieListContext.Provider
