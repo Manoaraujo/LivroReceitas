@@ -1,11 +1,19 @@
 import { Button } from "@mui/joy";
-import VideoFormWindow from "../VideoFormWindow";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { Box, Modal } from "@mui/material";
+import { useModalFormContext } from "../../Contexts/ModalFormContext";
+import VideoForm from "../VideoForm/Index";
+import { Dashboard } from "@mui/icons-material";
 
-function Header() {
+export default function Header() {
+   const { isOpen, closeModal, openModal } = useModalFormContext();
+   const handleClose = () => {
+      closeModal();
+      //   stopEditing();
+   };
    return (
-      <section className={styles.container}>
+      <header className={styles.container}>
          <Link to={"/"}>
             <img
                className={styles.LogoFooter}
@@ -16,16 +24,26 @@ function Header() {
          <div className={styles.buttonArea}>
             <Link to={"/admin"}>
                <Button
-                  // endIcon={<Dashboard />}
+                  endIcon={<Dashboard />}
                   className={styles.button}
                   color="danger"
                >
                   Gerenciamento de videos
                </Button>
             </Link>
-            <VideoFormWindow videoData="">Novo Video</VideoFormWindow>
+            <Button
+               color="danger"
+               className={styles.button}
+               onClick={openModal}
+            >
+               + Novo video
+            </Button>
          </div>
-      </section>
+         <Modal open={isOpen} onClose={handleClose}>
+            <Box className={styles.box}>
+               <VideoForm handleCloseModal={handleClose} />
+            </Box>
+         </Modal>
+      </header>
    );
 }
-export default Header;
