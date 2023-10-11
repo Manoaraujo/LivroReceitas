@@ -1,7 +1,6 @@
 import { Button } from "@mui/joy";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
-import { Dashboard } from "@mui/icons-material";
 import { Box, Modal, Typography } from "@mui/material";
 import DoneBox from "../DoneBox";
 import VideoForm from "../VideoForm/Index";
@@ -55,7 +54,7 @@ function Header() {
          <div className={styles.buttonArea}>
             <Link to={"/admin"}>
                <Button
-                  endIcon={<Dashboard />}
+                  // endIcon={<Dashboard />}
                   className={styles.button}
                   color="danger"
                >

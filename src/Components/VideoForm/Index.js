@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
 import extractVideoId from "../../helpers/extractVideoId";
-// import CategoryFormWindow from "../CategoryFormWindow";
+import CategoryFormWindow from "../CategoryFormWindow";
 import DoneBox from "../DoneBox";
 import NewCategoryForm from "../NewCategoryForm/Index";
 

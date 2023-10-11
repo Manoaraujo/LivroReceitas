@@ -6,7 +6,7 @@ import MovieCard from "../VideoCard/Index";
 import Category from "../../Category";
 import { useContext } from "react";
 import { MovieListContext } from "../../../Contexts/MovieList";
-
+import { v4 as uuidv4 } from "uuid";
 export default function SimpleSlider({ category }) {
    const { movies } = useContext(MovieListContext);
    const movieCategory = movies.filter(
@@ -26,8 +26,8 @@ export default function SimpleSlider({ category }) {
          <div className={styles.container}>
             <Category>{category.name}</Category>
             <Slider {...settings}>
-               {movieCategory.reverse().map((movie, index) => (
-                  <MovieCard key={index} movie={movie} />
+               {movieCategory.reverse().map((movie) => (
+                  <MovieCard key={uuidv4()} movie={movie} />
                ))}
             </Slider>
          </div>
@@ -44,8 +44,8 @@ export default function SimpleSlider({ category }) {
          <div className={styles.container}>
             <Category>{category.name}</Category>
             <Slider {...settings}>
-               {movieCategory.reverse().map((movie, index) => (
-                  <MovieCard key={index} movie={movie} />
+               {movieCategory.reverse().map((movie) => (
+                  <MovieCard key={uuidv4()} movie={movie} />
                ))}
             </Slider>
          </div>
