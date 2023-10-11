@@ -12,6 +12,7 @@ export default function Header() {
    const [open, setOpen] = useState(false);
    const [added, setAdded] = useState(false);
    const { movies, AddVideo } = useContext(MovieListContext);
+
    const handleOpen = () => {
       setOpen(true);
    };
@@ -43,7 +44,7 @@ export default function Header() {
    };
 
    return (
-      <section className={styles.container}>
+      <header className={styles.container}>
          <Link to={"/"}>
             <img
                className={styles.LogoFooter}
@@ -63,45 +64,36 @@ export default function Header() {
             </Link>
 
             {/* **************** */}
-            <div>
-               <Button
-                  color="danger"
-                  className={styles.button}
-                  onClick={handleOpen}
-               >
-                  Novo Video +
-               </Button>
-               <Modal open={open} onClose={handleClose}>
-                  <Box className={styles.box}>
-                     <DoneBox
-                        okMessage="Video adicionado com sucesso!"
-                        success={added}
+            <Button
+               color="danger"
+               className={styles.button}
+               onClick={handleOpen}
+            >
+               Novo Video +
+            </Button>
+            <Modal open={open} onClose={handleClose}>
+               <Box className={styles.box}>
+                  <DoneBox
+                     okMessage="Video adicionado com sucesso!"
+                     success={added}
+                  >
+                     <Typography
+                        sx={{
+                           color: "var(--medium-red)",
+                        }}
+                        align="center"
+                        variant="h4"
+                        component="h2"
                      >
-                        <Typography
-                           sx={{
-                              color: "var(--medium-red)",
-                           }}
-                           align="center"
-                           variant="h4"
-                           component="h2"
-                        >
-                           Novo vídeo
-                        </Typography>
+                        Novo vídeo
+                     </Typography>
 
-                        <VideoForm
-                           // key={uuidv4()}
-
-                           onFormSubmit={PostVideo}
-                           sx={{ mt: 2 }}
-                        />
-                     </DoneBox>
-                  </Box>
-               </Modal>
-            </div>
-            {/* **************** */}
-
-            {/* <VideoFormWindow>Novo Video</VideoFormWindow> */}
+                     <VideoForm onFormSubmit={PostVideo} sx={{ mt: 2 }} />
+                  </DoneBox>
+               </Box>
+            </Modal>
          </div>
-      </section>
+         {/* **************** */}
+      </header>
    );
 }

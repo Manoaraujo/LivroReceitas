@@ -62,18 +62,18 @@ export default function VideoForm({ onFormSubmit }) {
       }
    }, [added]);
 
-   function AddCategory(formData) {
-      if (formData !== "" && !categories.find((c) => c.name === formData)) {
-         const newAddedCategory = {
-            id: categories.length + 1,
-            name: formData,
-         };
-         addNewCategory(newAddedCategory);
-         setAdded(true);
-      } else {
-         handleClose();
-      }
-   }
+   // function AddCategory(formData) {
+   //    if (formData !== "" && !categories.find((c) => c.name === formData)) {
+   //       const newAddedCategory = {
+   //          id: categories.length + 1,
+   //          name: formData,
+   //       };
+   //       addNewCategory(newAddedCategory);
+   //       setAdded(true);
+   //    } else {
+   //       handleClose();
+   //    }
+   // }
 
    // ***************
 
@@ -181,7 +181,7 @@ export default function VideoForm({ onFormSubmit }) {
                      </Typography>
                      <CategoryForm
                         handleClose={handleClose}
-                        onFormSubmit={AddCategory}
+                        // onFormSubmit={AddCategory}
                      />
                   </DoneBox>
                </Box>
