@@ -1,25 +1,29 @@
 import { Button } from "@mui/joy";
-import styles from "./NewVideoForm.module.css";
+import styles from "./VideoForm.module.css";
 import {
+   Box,
    FormControl,
    InputLabel,
    MenuItem,
+   Modal,
    Select,
    TextField,
+   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
 import extractVideoId from "../../helpers/extractVideoId";
+import DoneBox from "../DoneBox";
+import CategoryForm from "../CategoryForm/Index";
 
-function NewVideoForm({ onFormSubmit, novaCategoria }) {
+export default function VideoForm({ onFormSubmit }) {
    const [title, setTitle] = useState("");
    const [linkEmbed, setEmbed] = useState("");
    const [category, setCategory] = useState("");
    const [description, setDescription] = useState("");
    const [error, setError] = useState(false);
-
-   const { categories } = useContext(CategoriesContext);
+   const { categories, addNewCategory } = useContext(CategoriesContext);
 
    function clearData(data) {
       setEmbed(data);
@@ -37,7 +41,42 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
       }
    }
 
-   console.log(error);
+   // ***************
+   const [open, setOpen] = useState(false);
+   const [added, setAdded] = useState(false);
+   const handleOpen = () => {
+      setOpen(true);
+   };
+   const handleClose = () => {
+      setOpen(false);
+      setAdded(false);
+   };
+
+   useEffect(() => {
+      if (added) {
+         const timer = setTimeout(() => {
+            handleClose();
+         }, 2000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [added]);
+
+   function AddCategory(formData) {
+      if (formData !== "" && !categories.find((c) => c.name === formData)) {
+         const newAddedCategory = {
+            id: categories.length + 1,
+            name: formData,
+         };
+         addNewCategory(newAddedCategory);
+         setAdded(true);
+      } else {
+         handleClose();
+      }
+   }
+
+   // ***************
+
    return (
       <form
          className={styles.container}
@@ -104,7 +143,52 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
                ))}
             </Select>
          </FormControl>
-         {novaCategoria}
+
+         {/* ********** */}
+         <>
+            <Button
+               size="small"
+               sx={{
+                  color: "var(--medium-red)",
+                  width: "120px",
+                  fontWeight: 600,
+                  padding: 0,
+                  background: "none",
+                  ":hover": { background: "none" },
+               }}
+               onClick={handleOpen}
+            >
+               + Nova Categoria
+            </Button>
+
+            <Modal hideBackdrop open={open} onClose={handleClose}>
+               <Box className={styles.categoryBox}>
+                  <DoneBox
+                     okMessage="Categoria adicionada com sucesso!"
+                     success={added}
+                  >
+                     ;
+                     <Typography
+                        sx={{
+                           padding: "5px",
+                           color: "var(--medium-red)",
+                        }}
+                        align="center"
+                        variant="h4"
+                        component="h2"
+                     >
+                        Nova Categoria
+                     </Typography>
+                     <CategoryForm
+                        handleClose={handleClose}
+                        onFormSubmit={AddCategory}
+                     />
+                  </DoneBox>
+               </Box>
+            </Modal>
+         </>
+         {/* ********** */}
+
          <TextField
             value={description}
             onChange={(e) => {
@@ -131,5 +215,3 @@ function NewVideoForm({ onFormSubmit, novaCategoria }) {
       </form>
    );
 }
-
-export default NewVideoForm;

@@ -50,3 +50,15 @@
    display: flex;
    gap: 10px;
 }
+.box {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 400px;
+   background-color: var(--color-background);
+   border: 2px solid #ff0000;
+   padding: 15px;
+   border-radius: 10px;
+   /* box-shadow: 24px; */
+}
