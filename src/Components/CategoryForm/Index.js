@@ -6,14 +6,13 @@ import styles from "./CategoryForm.module.css";
 import { CategoriesContext } from "../../Contexts/Categories/Index";
 import DoneBox from "../DoneBox";
 
-export default function CategoryForm({ onFormSubmit, handleClose }) {
-   const [newCategory, setNewCategory] = useState("");
+export default function CategoryForm({ handleClose }) {
    const { categories, addNewCategory } = useContext(CategoriesContext);
 
+   const [newCategory, setNewCategory] = useState("");
    const [added, setAdded] = useState(false);
 
    const capitalizeFirstLetter = (str) => {
-      // Transforma a primeira letra em maiúscula e as demais em minúsculas
       return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
    };
 

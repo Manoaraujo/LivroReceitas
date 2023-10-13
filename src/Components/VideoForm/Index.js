@@ -23,7 +23,7 @@ export default function VideoForm({ onFormSubmit }) {
    const [category, setCategory] = useState("");
    const [description, setDescription] = useState("");
    const [error, setError] = useState(false);
-   const { categories, addNewCategory } = useContext(CategoriesContext);
+   const { categories } = useContext(CategoriesContext);
 
    function clearData(data) {
       setEmbed(data);
@@ -61,19 +61,6 @@ export default function VideoForm({ onFormSubmit }) {
          return () => clearTimeout(timer);
       }
    }, [added]);
-
-   // function AddCategory(formData) {
-   //    if (formData !== "" && !categories.find((c) => c.name === formData)) {
-   //       const newAddedCategory = {
-   //          id: categories.length + 1,
-   //          name: formData,
-   //       };
-   //       addNewCategory(newAddedCategory);
-   //       setAdded(true);
-   //    } else {
-   //       handleClose();
-   //    }
-   // }
 
    // ***************
 
@@ -179,10 +166,7 @@ export default function VideoForm({ onFormSubmit }) {
                      >
                         Nova Categoria
                      </Typography>
-                     <CategoryForm
-                        handleClose={handleClose}
-                        // onFormSubmit={AddCategory}
-                     />
+                     <CategoryForm handleClose={handleClose} />
                   </DoneBox>
                </Box>
             </Modal>
