@@ -1,11 +1,59 @@
 .container {
-   height: 510px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
    background-color: var(--color-background);
 }
 .table {
+   height: 400px;
+   width: 600px;
    background-color: var(--grey);
    border-radius: 6px;
+}
+.areaTableVideos {
+   color: var(--white);
+   max-width: 700px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+/* Estilização da tabela */
+table {
+   width: 100%;
+   border-collapse: collapse;
+   box-shadow: 0 0 25px -1px #0e0c0c;
+   -webkit-box-shadow: 0 0 25px -1px #0e0c0c;
+   -moz-box-shadow: 0 0 25px -1px #0e0c0c;
+}
+
+/* Estilo do cabeçalho da tabela */
+thead {
+   background-color: var(--black-800);
+}
+
+th {
+   color: var(--white);
+   padding: 12px;
+   text-align: center;
+}
+
+/* Estilo das células de dados */
+td {
+   width: 100px;
+   padding: 12px;
+   text-align: center;
+}
+
+/* Estilo das células de dados com fundo alternado para melhor legibilidade */
+tbody tr:nth-child(even) {
+   background-color: var(--black-600);
+}
+
+tbody tr:nth-child(odd) {
+   background-color: var(--black-500);
+}
+
+/* Estilização da coluna "Categoria Banner?" */
+td:last-child {
+   text-align: center;
 }

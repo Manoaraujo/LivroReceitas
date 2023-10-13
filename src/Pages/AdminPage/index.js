@@ -1,36 +1,50 @@
-import { DataGrid } from "@mui/x-data-grid";
+import { IconButton } from "@mui/material";
 import styles from "./AdminPage.module.css";
 import { MovieListContext } from "../../Contexts/MovieList";
 import { useContext } from "react";
+import { Delete, Edit } from "@mui/icons-material";
 
 export default function AdminPage() {
-   const { movies } = useContext(MovieListContext);
+   const { movies, DeleteVideo } = useContext(MovieListContext);
 
-   const columns = [
-      { field: "id", headerName: "ID", width: 70 },
-      { field: "title", headerName: "VIDEO", width: 130 },
-      { field: "Category", headerName: "CATEGORIA", width: 130 },
-   ];
+   const handleClick = (video) => {
+      //   startEditing(video);
+      //   openModal();
+      console.log(video);
+   };
 
    return (
-      <div className={styles.container}>
-         <section className={styles.table}>
-            <DataGrid
-               rows={movies.map((video) => ({
-                  id: video.id,
-                  Category: video.category,
-                  title: video.title,
-               }))}
-               columns={columns}
-               initialState={{
-                  pagination: {
-                     paginationModel: { page: 0, pageSize: 5 },
-                  },
-               }}
-               pageSizeOptions={[5, 10]}
-               checkboxSelection
-            />
-         </section>
-      </div>
+      <section className={styles.container}>
+         <div className={styles.areaTableVideos}>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Titulo</th>
+                     <th>Categoria</th>
+                     <th>Editar</th>
+                     <th>Excluir</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {movies.map((video) => (
+                     <tr key={video.id}>
+                        <td>{video.title}</td>
+                        <td>{video.category}</td>
+                        <td>
+                           <IconButton onClick={() => handleClick(video)}>
+                              <Edit />
+                           </IconButton>
+                        </td>
+                        <td>
+                           <IconButton onClick={() => DeleteVideo(video.id)}>
+                              <Delete />
+                           </IconButton>
+                        </td>
+                     </tr>
+                  ))}
+               </tbody>
+            </table>
+         </div>
+      </section>
    );
 }
