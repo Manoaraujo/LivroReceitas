@@ -16,6 +16,18 @@
    margin: 0 auto;
    padding: 2rem;
 }
+.box {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 400px;
+   background-color: var(--color-background);
+   border: 2px solid #ff0000;
+   padding: 10px;
+   border-radius: 10px;
+   box-shadow: 24px;
+}
 
 /* Estilização da tabela */
 table {

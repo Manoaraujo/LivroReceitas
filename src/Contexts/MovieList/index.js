@@ -11,6 +11,17 @@ export const baseUrl = `https://my-json-server.typicode.com/Manoaraujo/LivroRece
 export const MovieList = ({ children }) => {
    const [movies, setMovies] = useState([]);
 
+   useEffect(() => {
+      axios
+         .get(baseUrl)
+         .then((response) => {
+            setMovies(response.data);
+         })
+         .catch((error) => {
+            console.error("Não foi possível encontrar os vídeos:", error);
+         });
+   }, []);
+
    const AddVideo = (newVideo) => {
       setMovies([...movies, newVideo]);
 
@@ -23,19 +34,26 @@ export const MovieList = ({ children }) => {
             console.error("Failed to add video:", error);
          });
    };
-   useEffect(() => {
+   const DeleteVideo = (id) => {
       axios
-         .get(baseUrl)
+         .delete(`${baseUrl}/${id}`)
          .then((response) => {
-            setMovies(response.data);
+            console.log("Video deleted successfully:", response.data);
+
+            setMovies((prevMovies) =>
+               prevMovies.filter((movie) => movie.id !== id)
+            );
          })
          .catch((error) => {
-            console.error("Não foi possível encontrar os vídeos:", error);
+            console.error("Failed to delete video:", error);
          });
-   }, []);
+   };
 
    return (
-      <MovieListContext.Provider key={movies.id} value={{ movies, AddVideo }}>
+      <MovieListContext.Provider
+         key={movies.id}
+         value={{ movies, AddVideo, DeleteVideo }}
+      >
          {children}
       </MovieListContext.Provider>
    );

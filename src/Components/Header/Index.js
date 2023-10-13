@@ -74,6 +74,7 @@ export default function Header() {
                      </Typography>
 
                      <VideoForm
+                        videoData={""}
                         onFormSubmit={() => setAdded(true)}
                         sx={{ mt: 2 }}
                      />

@@ -18,11 +18,12 @@ import DoneBox from "../DoneBox";
 import CategoryForm from "../CategoryForm/Index";
 import { MovieListContext } from "../../Contexts/MovieList";
 
-export default function VideoForm({ onFormSubmit }) {
-   const [title, setTitle] = useState("");
-   const [linkEmbed, setEmbed] = useState("");
-   const [category, setCategory] = useState("");
-   const [description, setDescription] = useState("");
+export default function VideoForm({ onFormSubmit, videoData }) {
+   const [title, setTitle] = useState(videoData.title);
+   const [linkEmbed, setEmbed] = useState(videoData.url);
+   const [category, setCategory] = useState(videoData.category);
+   const [description, setDescription] = useState(videoData.description);
+
    const [error, setError] = useState(false);
    const [open, setOpen] = useState(false);
    const [added, setAdded] = useState(false);
