@@ -55,7 +55,8 @@ export default function CategoryForm({ handleClose }) {
                   setNewCategory(e.target.value);
                }}
                InputProps={{ className: styles.input }}
-               inputProps={{ maxLength: 12 }}
+               inputProps={{ maxLength: 8 }}
+               placeholder="Nome com no máximo 8 caracteres"
                color="warning"
                label="Nome"
                margin="normal"

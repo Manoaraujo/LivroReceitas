@@ -27,7 +27,7 @@ export default function VideoForm({ onFormSubmit, videoData }) {
    const [error, setError] = useState(false);
    const [open, setOpen] = useState(false);
    const [added, setAdded] = useState(false);
-   const { movies, AddVideo } = useContext(MovieListContext);
+   const { movies, AddVideo, EditVideo } = useContext(MovieListContext);
    const { categories } = useContext(CategoriesContext);
 
    const clearData = (data) => {
@@ -65,15 +65,29 @@ export default function VideoForm({ onFormSubmit, videoData }) {
    }, [added]);
 
    const PostVideo = () => {
-      const newVideo = {
-         id: movies.length + 1,
-         title: title,
-         category: category,
-         url: linkEmbed,
-         description: description,
-      };
-      AddVideo(newVideo);
-      setAdded(true);
+      if (videoData === "") {
+         const newVideo = {
+            id: movies.length + 1,
+            title: title,
+            category: category,
+            url: linkEmbed,
+            description: description,
+         };
+
+         AddVideo(newVideo);
+         setAdded(true);
+      } else {
+         const newVideo = {
+            id: videoData.id,
+            title: title,
+            category: category,
+            url: linkEmbed,
+            description: description,
+         };
+
+         EditVideo(newVideo);
+         setAdded(true);
+      }
    };
 
    return (

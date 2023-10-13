@@ -6,6 +6,7 @@ import { Delete, Edit } from "@mui/icons-material";
 import DoneBox from "../../Components/DoneBox";
 import VideoForm from "../../Components/VideoForm/Index";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function AdminPage() {
    const [open, setOpen] = useState(false);
@@ -21,7 +22,7 @@ export default function AdminPage() {
    };
    const { movies, DeleteVideo } = useContext(MovieListContext);
 
-   const EditVideo = (video) => {
+   const EditVideoData = (video) => {
       const videoToEdit = {
          id: video.id,
          title: video.title,
@@ -32,6 +33,16 @@ export default function AdminPage() {
       handleOpen();
       setVideoToEdit(videoToEdit);
    };
+
+   useEffect(() => {
+      if (added) {
+         const timer = setTimeout(() => {
+            handleClose();
+         }, 2000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [added]);
 
    return (
       <section className={styles.container}>
@@ -51,7 +62,7 @@ export default function AdminPage() {
                         <td>{video.title}</td>
                         <td>{video.category}</td>
                         <td>
-                           <IconButton onClick={() => EditVideo(video)}>
+                           <IconButton onClick={() => EditVideoData(video)}>
                               <Edit />
                            </IconButton>
                         </td>
@@ -67,7 +78,7 @@ export default function AdminPage() {
             <Modal open={open} onClose={handleClose}>
                <Box className={styles.box}>
                   <DoneBox
-                     okMessage="Video adicionado com sucesso!"
+                     okMessage="Video Editado com sucesso!"
                      success={added}
                   >
                      <Typography
@@ -78,7 +89,7 @@ export default function AdminPage() {
                         variant="h4"
                         component="h2"
                      >
-                        Novo vídeo
+                        Editar vídeo
                      </Typography>
 
                      <VideoForm
