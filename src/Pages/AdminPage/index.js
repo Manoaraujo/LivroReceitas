@@ -7,7 +7,7 @@ import { Delete, Edit } from "@mui/icons-material";
 export default function AdminPage() {
    const { movies, DeleteVideo } = useContext(MovieListContext);
 
-   const handleClick = (video) => {
+   const EditVideo = (video) => {
       //   startEditing(video);
       //   openModal();
       console.log(video);
@@ -31,7 +31,7 @@ export default function AdminPage() {
                         <td>{video.title}</td>
                         <td>{video.category}</td>
                         <td>
-                           <IconButton onClick={() => handleClick(video)}>
+                           <IconButton onClick={() => EditVideo(video)}>
                               <Edit />
                            </IconButton>
                         </td>

@@ -5,13 +5,11 @@ import { Dashboard } from "@mui/icons-material";
 import { Box, Modal, Typography } from "@mui/material";
 import DoneBox from "../DoneBox";
 import VideoForm from "../VideoForm/Index";
-import { useContext, useEffect, useState } from "react";
-import { MovieListContext } from "../../Contexts/MovieList";
+import { useEffect, useState } from "react";
 
 export default function Header() {
    const [open, setOpen] = useState(false);
    const [added, setAdded] = useState(false);
-   const { movies, AddVideo } = useContext(MovieListContext);
 
    const handleOpen = () => {
       setOpen(true);
@@ -30,18 +28,6 @@ export default function Header() {
          return () => clearTimeout(timer);
       }
    }, [added]);
-
-   const PostVideo = (formData) => {
-      const newVideo = {
-         id: movies.length + 1,
-         title: formData.title,
-         category: formData.category,
-         url: formData.linkEmbed,
-         description: formData.description,
-      };
-      AddVideo(newVideo);
-      setAdded(true);
-   };
 
    return (
       <header className={styles.container}>
@@ -63,7 +49,6 @@ export default function Header() {
                </Button>
             </Link>
 
-            {/* **************** */}
             <Button
                color="danger"
                className={styles.button}
@@ -88,12 +73,14 @@ export default function Header() {
                         Novo vídeo
                      </Typography>
 
-                     <VideoForm onFormSubmit={PostVideo} sx={{ mt: 2 }} />
+                     <VideoForm
+                        onFormSubmit={() => setAdded(true)}
+                        sx={{ mt: 2 }}
+                     />
                   </DoneBox>
                </Box>
             </Modal>
          </div>
-         {/* **************** */}
       </header>
    );
 }

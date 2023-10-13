@@ -6,7 +6,7 @@ import { MovieListContext } from "../../Contexts/MovieList";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@mui/joy";
 
-function VideoPage() {
+export default function VideoPage() {
    const { movies } = useContext(MovieListContext);
 
    const params = useParams();
@@ -31,5 +31,3 @@ function VideoPage() {
       </div>
    );
 }
-
-export default VideoPage;

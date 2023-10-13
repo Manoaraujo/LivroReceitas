@@ -16,6 +16,7 @@ import { CategoriesContext } from "../../Contexts/Categories/Index";
 import extractVideoId from "../../helpers/extractVideoId";
 import DoneBox from "../DoneBox";
 import CategoryForm from "../CategoryForm/Index";
+import { MovieListContext } from "../../Contexts/MovieList";
 
 export default function VideoForm({ onFormSubmit }) {
    const [title, setTitle] = useState("");
@@ -23,15 +24,18 @@ export default function VideoForm({ onFormSubmit }) {
    const [category, setCategory] = useState("");
    const [description, setDescription] = useState("");
    const [error, setError] = useState(false);
+   const [open, setOpen] = useState(false);
+   const [added, setAdded] = useState(false);
+   const { movies, AddVideo } = useContext(MovieListContext);
    const { categories } = useContext(CategoriesContext);
 
-   function clearData(data) {
+   const clearData = (data) => {
       setEmbed(data);
       setTitle(data);
       setDescription(data);
-   }
+   };
 
-   function createEmbed(videoId) {
+   const createEmbed = (videoId) => {
       if (videoId) {
          setEmbed(`https://youtube.com/embed/${videoId}`);
          setError(false);
@@ -39,11 +43,8 @@ export default function VideoForm({ onFormSubmit }) {
          setEmbed("");
          setError(true);
       }
-   }
+   };
 
-   // ***************
-   const [open, setOpen] = useState(false);
-   const [added, setAdded] = useState(false);
    const handleOpen = () => {
       setOpen(true);
    };
@@ -62,19 +63,25 @@ export default function VideoForm({ onFormSubmit }) {
       }
    }, [added]);
 
-   // ***************
+   const PostVideo = () => {
+      const newVideo = {
+         id: movies.length + 1,
+         title: title,
+         category: category,
+         url: linkEmbed,
+         description: description,
+      };
+      AddVideo(newVideo);
+      setAdded(true);
+   };
 
    return (
       <form
          className={styles.container}
          onSubmit={(e) => {
             e.preventDefault();
-            onFormSubmit({
-               title,
-               linkEmbed,
-               category,
-               description,
-            });
+            onFormSubmit();
+            PostVideo();
          }}
       >
          <TextField

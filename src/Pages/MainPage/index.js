@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "../../Components/Footer/Index";
 import Header from "../../Components/Header/Index";
 
-function MainPage() {
+export default function MainPage() {
    return (
       <main>
          <Header />
@@ -11,5 +11,3 @@ function MainPage() {
       </main>
    );
 }
-
-export default MainPage;
