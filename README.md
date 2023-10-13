@@ -22,8 +22,40 @@ O livro de receitas é um projeto desenvolvido em React e tem todas as vantangen
 - [Mano Araujo - Github](https://github.com/Manoaraujo)
 - [Mano Araujo - Linkedin](https://www.linkedin.com/in/germano-araujo/)
 
+- # Recipe Book
+
+The Recipe Book is a repository of your favorite recipe videos.
+
+## Features
+
+The Recipe Book is a project developed in React and offers all the advantages of speed and Single Page Application (SPA) that it provides.
+
+- Thumbnails of the videos are displayed on the home screen, categorized by type.
+- The latest added video is highlighted on the main page.
+- Clicking on the title displays the video in a larger size with its description.
+- To add a new video, simply click the "+ New Video" button, and a floating window with a form will appear on the screen.
+- The new video and new category forms have fields with data validation.
+- The link field automatically validates if it's a valid YouTube link and converts it to the correct embed format.
+- When adding a video or category, a confirmation window appears on the screen.
+- On the video management page, you can view a table with all the registered videos, as well as delete and edit them.
+
+## Author
+
+- [Mano Araujo - Github](https://github.com/Manoaraujo)
+- [Mano Araujo - Linkedin](https://www.linkedin.com/in/germano-araujo/)
+
+
+
+
 
 ## Screenshots
+
+<img src="https://github.com/Manoaraujo/LivroReceitas/blob/master/public/Screenshots/home.png">
+<img src="https://github.com/Manoaraujo/LivroReceitas/blob/master/public/Screenshots/new-video.png">
+<img src="https://github.com/Manoaraujo/LivroReceitas/blob/master/public/Screenshots/new-category.png">
+<img src="https://github.com/Manoaraujo/LivroReceitas/blob/master/public/Screenshots/confirmation.png">
+<img src="https://github.com/Manoaraujo/LivroReceitas/blob/master/public/Screenshots/videos-list.png">
+
 
 
 
